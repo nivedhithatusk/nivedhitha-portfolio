@@ -2,10 +2,17 @@
 
 import { motion } from "framer-motion";
 import TerminalWindow from "@/components/TerminalWindow";
+import { useActiveSection } from "@/hooks/useActiveSection";
 import { HiOutlineArrowRight, HiOutlineArrowTopRightOnSquare } from "@/icons";
 import { personal, stats } from "@/data/resume";
 
 export default function Hero() {
+  const { navigateTo } = useActiveSection();
+
+  const goTo = (href: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigateTo(href);
+  };
   return (
     <section className="relative min-h-screen overflow-hidden pt-24 pb-16">
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,#fafbff_0%,#f0f4ff_100%)]" />
@@ -39,13 +46,15 @@ export default function Hero() {
           </h1>
 
           <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
-            Hi, I&apos;m <strong className="text-slate-900">{personal.name}</strong>.{" "}
+            Hi, I&apos;m{" "}
+            <strong className="text-slate-900">{personal.name}</strong>.{" "}
             {personal.tagline}
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="#projects"
+              onClick={goTo("#projects")}
               className="group inline-flex items-center gap-2 rounded-lg bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               View Projects
@@ -62,6 +71,7 @@ export default function Hero() {
             </a>
             <a
               href="#contact"
+              onClick={goTo("#contact")}
               className="inline-flex items-center gap-2 rounded-lg border-2 border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-emerald-500 hover:text-emerald-700"
             >
               Contact Me
@@ -77,7 +87,9 @@ export default function Hero() {
                 <p className="font-[family-name:var(--font-syne)] text-xl font-bold text-slate-900 sm:text-2xl">
                   {s.value}
                 </p>
-                <p className="mt-0.5 text-[10px] font-medium text-slate-500 sm:text-xs">{s.label}</p>
+                <p className="mt-0.5 text-[10px] font-medium text-slate-500 sm:text-xs">
+                  {s.label}
+                </p>
               </div>
             ))}
           </div>

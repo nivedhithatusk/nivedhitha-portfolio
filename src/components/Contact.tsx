@@ -1,13 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import AnimatedSection, { SectionHeader } from "@/components/ui/AnimatedSection";
+import AnimatedSection, {
+  SectionHeader,
+} from "@/components/ui/AnimatedSection";
 import { personal } from "@/data/resume";
 import {
   FaLinkedin,
   HiOutlineEnvelope,
   HiOutlineMapPin,
   HiOutlineArrowRight,
+  HiOutlineLink,
 } from "@/icons";
 
 export default function Contact() {
@@ -35,9 +38,10 @@ export default function Contact() {
               Have a project in mind?
             </h3>
             <p className="mt-4 leading-relaxed text-slate-600">
-              Whether you need a scalable web application, AWS cloud deployment, Java backend
-              development, or production support — I&apos;m ready to help. Drop me a message and
-              I&apos;ll respond as soon as possible.
+              Whether you need a scalable web application, AWS cloud deployment,
+              Java backend development, or production support — I&apos;m ready
+              to help. Drop me a message and I&apos;ll respond as soon as
+              possible.
             </p>
             <ul className="mt-6 space-y-3 text-sm text-slate-600">
               <li className="flex items-center gap-2">
@@ -70,8 +74,12 @@ export default function Contact() {
                 <HiOutlineEnvelope className="h-6 w-6" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">Email</p>
-                <p className="truncate font-semibold text-slate-900">{personal.email}</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                  Email
+                </p>
+                <p className="truncate font-semibold text-slate-900">
+                  {personal.email}
+                </p>
               </div>
               <HiOutlineArrowRight className="h-5 w-5 shrink-0 text-slate-300 transition group-hover:text-emerald-600" />
             </a>
@@ -81,8 +89,12 @@ export default function Contact() {
                 <HiOutlineMapPin className="h-6 w-6" />
               </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">Location</p>
-                <p className="font-semibold text-slate-900">{personal.location}</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                  Location
+                </p>
+                <p className="font-semibold text-slate-900">
+                  {personal.location}
+                </p>
               </div>
             </div>
 
@@ -95,11 +107,35 @@ export default function Contact() {
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-[#0A66C2]">
                 <FaLinkedin className="h-6 w-6" />
               </div>
-              <div className="flex-1">
-                <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">LinkedIn</p>
-                <p className="font-semibold text-slate-900">Connect with me</p>
+              <div className="min-w-0 flex-1">
+                <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                  LinkedIn
+                </p>
+                <p className="truncate font-semibold text-slate-900">
+                  linkedin.com/in/nivedhitha-praba
+                </p>
               </div>
               <HiOutlineArrowRight className="h-5 w-5 shrink-0 text-slate-300 transition group-hover:text-blue-600" />
+            </a>
+
+            <a
+              href={personal.portfolio}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-5 transition hover:border-violet-400 hover:bg-violet-50/50"
+            >
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-violet-100 text-violet-700">
+                <HiOutlineLink className="h-6 w-6" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                  Portfolio
+                </p>
+                <p className="truncate font-semibold text-slate-900">
+                  nivedhitha-portfolio.vercel.app
+                </p>
+              </div>
+              <HiOutlineArrowRight className="h-5 w-5 shrink-0 text-slate-300 transition group-hover:text-violet-600" />
             </a>
 
             <a

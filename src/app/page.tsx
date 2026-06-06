@@ -1,5 +1,7 @@
 "use client";
 
+import SmoothScroll from "@/components/SmoothScroll";
+import { ActiveSectionProvider } from "@/hooks/useActiveSection";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import MarqueeBand from "@/components/MarqueeBand";
@@ -12,18 +14,20 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <>
-      <Navbar />
-      <main>
-        <Hero />
-        <MarqueeBand />
-        <About />
-        <Experience />
-        <Skills />
-        <Projects />
-        <Contact />
-      </main>
-      <Footer />
-    </>
+    <SmoothScroll>
+      <ActiveSectionProvider>
+        <Navbar />
+        <main>
+          <Hero />
+          <MarqueeBand />
+          <About />
+          <Experience />
+          <Skills />
+          <Projects />
+          <Contact />
+        </main>
+        <Footer />
+      </ActiveSectionProvider>
+    </SmoothScroll>
   );
 }
