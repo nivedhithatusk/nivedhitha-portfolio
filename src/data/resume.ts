@@ -7,13 +7,13 @@ export const personal = {
   email: "nivedhithapraba@gmail.com",
   location: "Chennai, Tamil Nadu",
   linkedin: "https://linkedin.com/in/nivedhitha-a",
-  yearsOfExperience: "7.5+",
+  yearsOfExperience: "6+",
   resume: "/Nivedhitha_Professional_Resume.docx",
   resumeLabel: "Nivedhitha_Professional_Resume.docx",
 };
 
 export const summary =
-  "Results-driven Full Stack Developer and DevOps Engineer with 7.5+ years of experience designing, developing, deploying, and maintaining scalable web applications and cloud infrastructure. Strong expertise in React.js, Next.js, Node.js, Java, Spring Boot, AWS (EC2, S3, CloudFront, Route 53), Nginx, PM2, cPanel, and production support across banking, fintech, media, and enterprise domains.";
+  "Results-driven Full Stack Developer and DevOps Engineer with 6+ years of experience designing, developing, deploying, and maintaining scalable web applications and cloud infrastructure. Strong expertise in React.js, Next.js, Node.js, Java, Spring Boot, AWS (EC2, S3, CloudFront, Route 53), Nginx, PM2, cPanel, and production support across banking, fintech, media, and enterprise domains.";
 
 export const navLinks = [
   { label: "About", href: "#about" },
@@ -287,7 +287,7 @@ export const education = [
 ];
 
 export const stats = [
-  { value: "7.5+", label: "Years Experience" },
+  { value: "6+", label: "Years Experience" },
   { value: "10+", label: "Projects Deployed" },
   { value: "4", label: "Companies" },
   { value: "100%", label: "Production Focus" },

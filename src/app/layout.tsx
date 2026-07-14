@@ -15,7 +15,7 @@ const syne = Syne({
 export const metadata: Metadata = {
   title: "Nivedhitha A | Full Stack Developer & DevOps Engineer",
   description:
-    "Portfolio of Nivedhitha A — 7.5+ years building scalable web applications and cloud infrastructure.",
+    "Portfolio of Nivedhitha A — 6+ years building scalable web applications and cloud infrastructure.",
   authors: [{ name: "Nivedhitha A" }],
 };
 
