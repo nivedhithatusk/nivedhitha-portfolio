@@ -1,27 +1,20 @@
 export const personal = {
   name: "Nivedhitha A",
   firstName: "Nivedhitha",
-  designation: "Senior Full Stack Developer & DevOps Engineer",
+  designation: "Software Engineer",
   tagline:
-    "Building scalable web applications & cloud infrastructure for banking, healthcare, and enterprise.",
+    "Designing, developing, and supporting enterprise web apps — with hands-on deployment on Linux and AWS.",
   email: "nivedhithapraba@gmail.com",
   location: "Chennai, Tamil Nadu",
-<<<<<<< HEAD
-  linkedin: "https://linkedin.com/in/nivedhitha-a",
-  yearsOfExperience: "6+",
-  resume: "/Nivedhitha_Professional_Resume.docx",
-  resumeLabel: "Nivedhitha_Professional_Resume.docx",
-=======
   linkedin: "https://www.linkedin.com/in/nivedhitha-praba-07925913a",
   portfolio: "https://nivedhitha-portfolio.vercel.app",
-  yearsOfExperience: "7.5+",
+  yearsOfExperience: "6+",
   resume: "/Nivedhitha_Professional_Resume.pdf",
   resumeLabel: "Nivedhitha_Professional_Resume.pdf",
->>>>>>> 944b272274c303280feea13f8ce7386dc947f568
 };
 
 export const summary =
-  "Results-driven Full Stack Developer and DevOps Engineer with 6+ years of experience designing, developing, deploying, and maintaining scalable web applications and cloud infrastructure. Strong expertise in React.js, Next.js, Node.js, Java, Spring Boot, AWS (EC2, S3, CloudFront, Route 53), Nginx, PM2, cPanel, and production support across banking, fintech, media, and enterprise domains.";
+  "Software Engineer with 6+ years of experience in designing, developing, and supporting enterprise web applications, including 2+ years of hands-on experience in application deployment, cloud infrastructure, and production support. Proficient in Java, Spring Boot, Node.js, React.js, and Next.js, with practical experience deploying and maintaining applications on Linux and AWS environments. Skilled in configuring Nginx, PM2, Amazon EC2, Route 53, SSL, Load Balancers, WAF, cPanel, DNS management, and production troubleshooting. Experienced in delivering secure, scalable, and reliable solutions while collaborating with cross-functional teams and clients across banking, fintech, healthcare, media, and enterprise domains.";
 
 export const navLinks = [
   { label: "About", href: "#about" },
@@ -182,14 +175,44 @@ export const experience = [
 
 export const skillCategories = [
   {
+    title: "Deployment & Infrastructure",
+    skills: [
+      "Application Deployment",
+      "Linux Server Administration",
+      "Production Support",
+      "Server Migration",
+      "Infrastructure Management",
+      "Domain & DNS Management",
+      "SSL Certificate Installation",
+      "Reverse Proxy Configuration",
+    ],
+  },
+  {
+    title: "Cloud & DevOps",
+    skills: [
+      "AWS EC2",
+      "Amazon S3",
+      "Amazon CloudFront",
+      "Amazon Route 53",
+      "AWS Certificate Manager (ACM)",
+      "Elastic Load Balancer (ELB)",
+      "AWS WAF",
+      "Nginx",
+      "PM2",
+      "Ubuntu",
+      "cPanel",
+      "GoDaddy Hosting",
+    ],
+  },
+  {
     title: "Frontend",
     skills: [
       "React.js",
       "Next.js",
-      "HTML",
-      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "JavaScript (ES6+)",
       "Tailwind CSS",
-      "CSS",
       "JSP",
       "AJAX",
     ],
@@ -204,29 +227,18 @@ export const skillCategories = [
       "Spring Boot",
       "Hibernate",
       "Struts",
+      "REST APIs",
       "JSON",
+      "JDBC",
     ],
   },
   {
     title: "Databases",
-    skills: ["MySQL", "PostgreSQL", "Oracle Database", "JDBC"],
+    skills: ["MySQL", "PostgreSQL", "Oracle Database"],
   },
   {
-    title: "Cloud & DevOps",
-    skills: [
-      "DevOps",
-      "Amazon EC2",
-      "Amazon S3",
-      "Amazon CloudFront",
-      "Amazon Route 53",
-      "Elastic Load Balancing",
-      "Nginx",
-      "PM2",
-      "Ubuntu",
-      "GoDaddy",
-      "Web Hosting",
-      "cPanel",
-    ],
+    title: "Version Control",
+    skills: ["Git", "GitHub"],
   },
   {
     title: "Tools & IDEs",
@@ -234,7 +246,7 @@ export const skillCategories = [
       "VS Code",
       "Cursor",
       "IntelliJ IDEA",
-      "STS",
+      "Spring Tool Suite (STS)",
       "MyEclipse",
       "Postman",
       "DBeaver",
@@ -243,18 +255,16 @@ export const skillCategories = [
       "OpenProject",
       "MobaXterm",
       "Electerm",
-      "Asana",
-      "SOS",
-      "Workforce",
-      "Workcloud",
-      "Git",
-      "GitHub",
     ],
+  },
+  {
+    title: "Project Management & Business Tools",
+    skills: ["Asana", "Workforce", "Workcloud", "SOS"],
   },
 ];
 
 export const allSkills = Array.from(
-  new Set(experience.flatMap((job) => job.skills)),
+  new Set(skillCategories.flatMap((cat) => cat.skills)),
 ).sort();
 
 export const marqueeSkills = allSkills;
