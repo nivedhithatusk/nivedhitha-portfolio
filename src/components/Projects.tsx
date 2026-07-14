@@ -2,7 +2,9 @@
 
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import AnimatedSection, { SectionHeader } from "@/components/ui/AnimatedSection";
+import AnimatedSection, {
+  SectionHeader,
+} from "@/components/ui/AnimatedSection";
 import { projectCompanies, projects } from "@/data/resume";
 
 const companyMeta: Record<
@@ -53,7 +55,7 @@ export default function Projects() {
         },
         items: projects.filter((p) => p.company === company),
       })),
-    []
+    [],
   );
 
   const toggle = (company: string) =>
@@ -98,7 +100,9 @@ export default function Projects() {
                         {String(items.length).padStart(2, "0")} projects
                       </span>
                     </div>
-                    <p className="mt-0.5 text-sm text-slate-500">{meta.domain}</p>
+                    <p className="mt-0.5 text-sm text-slate-500">
+                      {meta.domain}
+                    </p>
                   </div>
                   <motion.span
                     animate={{ rotate: open ? 45 : 0 }}
@@ -123,7 +127,7 @@ export default function Projects() {
                           <span className="col-span-1">#</span>
                           <span className="col-span-3">Client</span>
                           <span className="col-span-4">Project</span>
-                          <span className="col-span-4">Stack</span>
+                          <span className="col-span-4">Details</span>
                         </div>
 
                         <ol className="space-y-0">
@@ -132,7 +136,9 @@ export default function Projects() {
                               key={project.name}
                               initial={{ opacity: 0, x: -12 }}
                               animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: groupIndex * 0.05 + i * 0.04 }}
+                              transition={{
+                                delay: groupIndex * 0.05 + i * 0.04,
+                              }}
                               className="group border-b border-slate-100 last:border-0"
                             >
                               <div className="grid grid-cols-1 gap-2 px-2 py-4 sm:grid-cols-12 sm:items-start sm:gap-4">
@@ -144,7 +150,8 @@ export default function Projects() {
                                   <div className="flex items-center gap-2 sm:block">
                                     <span
                                       className={`h-2 w-2 shrink-0 rounded-full sm:mb-2 sm:inline-block ${
-                                        domainDot[project.domain] ?? "bg-slate-300"
+                                        domainDot[project.domain] ??
+                                        "bg-slate-300"
                                       }`}
                                     />
                                     <p className="font-semibold text-slate-900">
@@ -166,6 +173,9 @@ export default function Projects() {
                                 </div>
 
                                 <div className="sm:col-span-4">
+                                  <p className="mb-1 font-mono text-[10px] uppercase tracking-wide text-slate-400 sm:hidden">
+                                    Details
+                                  </p>
                                   <p className="font-mono text-xs leading-relaxed text-slate-600">
                                     {project.stack.join(" · ")}
                                   </p>
@@ -194,9 +204,12 @@ export default function Projects() {
             projects.reduce<Record<string, number>>((acc, p) => {
               acc[p.domain] = (acc[p.domain] ?? 0) + 1;
               return acc;
-            }, {})
+            }, {}),
           ).map(([domain, count]) => (
-            <div key={domain} className="flex items-center gap-2 text-sm text-slate-600">
+            <div
+              key={domain}
+              className="flex items-center gap-2 text-sm text-slate-600"
+            >
               <span
                 className={`h-2 w-2 rounded-full ${domainDot[domain] ?? "bg-slate-300"}`}
               />

@@ -6,10 +6,18 @@ export const personal = {
     "Building scalable web applications & cloud infrastructure for banking, healthcare, and enterprise.",
   email: "nivedhithapraba@gmail.com",
   location: "Chennai, Tamil Nadu",
+<<<<<<< HEAD
   linkedin: "https://linkedin.com/in/nivedhitha-a",
   yearsOfExperience: "6+",
   resume: "/Nivedhitha_Professional_Resume.docx",
   resumeLabel: "Nivedhitha_Professional_Resume.docx",
+=======
+  linkedin: "https://www.linkedin.com/in/nivedhitha-praba-07925913a",
+  portfolio: "https://nivedhitha-portfolio.vercel.app",
+  yearsOfExperience: "7.5+",
+  resume: "/Nivedhitha_Professional_Resume.pdf",
+  resumeLabel: "Nivedhitha_Professional_Resume.pdf",
+>>>>>>> 944b272274c303280feea13f8ce7386dc947f568
 };
 
 export const summary =
@@ -45,10 +53,37 @@ export const experience = [
       "Workforce, Workspace, TuskQR, Tusk Cloud: End-to-end deployment and server administration.",
     ],
     skills: [
-      "React.js", "Node.js", "Next.js", "MySQL", "Tailwind CSS", "CSS", "Ubuntu", "DevOps",
-      "Amazon EC2", "Amazon CloudFront", "Amazon S3", "Amazon Route 53", "Elastic Load Balancing",
-      "Nginx", "PM2", "GoDaddy", "Web Hosting", "GitHub", "Git", "cPanel", "Core Java", "Postman",
-      "VS Code", "DBeaver", "Adminer", "Cursor", "MobaXterm", "Electerm", "Asana", "Workforce", "Workcloud",
+      "React.js",
+      "Node.js",
+      "Next.js",
+      "MySQL",
+      "Tailwind CSS",
+      "CSS",
+      "Ubuntu",
+      "DevOps",
+      "Amazon EC2",
+      "Amazon CloudFront",
+      "Amazon S3",
+      "Amazon Route 53",
+      "Elastic Load Balancing",
+      "Nginx",
+      "PM2",
+      "GoDaddy",
+      "Web Hosting",
+      "GitHub",
+      "Git",
+      "cPanel",
+      "Core Java",
+      "Postman",
+      "VS Code",
+      "DBeaver",
+      "Adminer",
+      "Cursor",
+      "MobaXterm",
+      "Electerm",
+      "Asana",
+      "Workforce",
+      "Workcloud",
     ],
   },
   {
@@ -65,8 +100,22 @@ export const experience = [
       "Owned API development, Postman testing, DB schema design, and production deployments.",
     ],
     skills: [
-      "J2EE", "Git", "JSON", "Spring Boot", "HTML", "PostgreSQL", "JSP", "Java", "MySQL",
-      "AJAX", "Core Java", "Postman", "IntelliJ IDEA", "STS", "VS Code", "SonarQube",
+      "J2EE",
+      "Git",
+      "JSON",
+      "Spring Boot",
+      "HTML",
+      "PostgreSQL",
+      "JSP",
+      "Java",
+      "MySQL",
+      "AJAX",
+      "Core Java",
+      "Postman",
+      "IntelliJ IDEA",
+      "STS",
+      "VS Code",
+      "SonarQube",
     ],
   },
   {
@@ -81,8 +130,23 @@ export const experience = [
       "Exposure to Git, Linux, and cross-platform deployment techniques.",
     ],
     skills: [
-      "Oracle Database", "JSP", "Java", "J2EE", "MySQL", "Git", "AJAX", "Hibernate", "JSON",
-      "Core Java", "Spring Boot", "HTML", "PostgreSQL", "Postman", "OpenProject", "STS", "DBeaver",
+      "Oracle Database",
+      "JSP",
+      "Java",
+      "J2EE",
+      "MySQL",
+      "Git",
+      "AJAX",
+      "Hibernate",
+      "JSON",
+      "Core Java",
+      "Spring Boot",
+      "HTML",
+      "PostgreSQL",
+      "Postman",
+      "OpenProject",
+      "STS",
+      "DBeaver",
     ],
   },
   {
@@ -94,11 +158,24 @@ export const experience = [
     highlights: [
       "Media ERP product for Daily Thanthi — Advertisement, Circulation, Accounts, HR, Purchase.",
       "DAO design patterns for data integrity across distributed systems.",
-      "Dynamic reporting modules (PDF/Text), payroll automation, and RBAC.",
+      "Dynamic reporting modules (PDF/Text), payroll automation, and attendance management.",
     ],
     skills: [
-      "Oracle Database", "JSP", "Java", "J2EE", "AJAX", "Struts", "Hibernate", "Core Java",
-      "HTML", "JavaScript", "JDBC", "MySQL", "MyEclipse", "SOS", "Postman",
+      "Oracle Database",
+      "JSP",
+      "Java",
+      "J2EE",
+      "AJAX",
+      "Struts",
+      "Hibernate",
+      "Core Java",
+      "HTML",
+      "JavaScript",
+      "JDBC",
+      "MySQL",
+      "MyEclipse",
+      "SOS",
+      "Postman",
     ],
   },
 ];
@@ -106,11 +183,29 @@ export const experience = [
 export const skillCategories = [
   {
     title: "Frontend",
-    skills: ["React.js", "Next.js", "HTML", "JavaScript", "Tailwind CSS", "CSS", "JSP", "AJAX"],
+    skills: [
+      "React.js",
+      "Next.js",
+      "HTML",
+      "JavaScript",
+      "Tailwind CSS",
+      "CSS",
+      "JSP",
+      "AJAX",
+    ],
   },
   {
     title: "Backend",
-    skills: ["Node.js", "Java", "Core Java", "J2EE", "Spring Boot", "Hibernate", "Struts", "JSON"],
+    skills: [
+      "Node.js",
+      "Java",
+      "Core Java",
+      "J2EE",
+      "Spring Boot",
+      "Hibernate",
+      "Struts",
+      "JSON",
+    ],
   },
   {
     title: "Databases",
@@ -119,22 +214,47 @@ export const skillCategories = [
   {
     title: "Cloud & DevOps",
     skills: [
-      "DevOps", "Amazon EC2", "Amazon S3", "Amazon CloudFront", "Amazon Route 53",
-      "Elastic Load Balancing", "Nginx", "PM2", "Ubuntu", "GoDaddy", "Web Hosting", "cPanel",
+      "DevOps",
+      "Amazon EC2",
+      "Amazon S3",
+      "Amazon CloudFront",
+      "Amazon Route 53",
+      "Elastic Load Balancing",
+      "Nginx",
+      "PM2",
+      "Ubuntu",
+      "GoDaddy",
+      "Web Hosting",
+      "cPanel",
     ],
   },
   {
     title: "Tools & IDEs",
     skills: [
-      "VS Code", "Cursor", "IntelliJ IDEA", "STS", "MyEclipse", "Postman", "DBeaver", "Adminer",
-      "SonarQube", "OpenProject", "MobaXterm", "Electerm", "Asana", "SOS", "Workforce", "Workcloud",
-      "Git", "GitHub",
+      "VS Code",
+      "Cursor",
+      "IntelliJ IDEA",
+      "STS",
+      "MyEclipse",
+      "Postman",
+      "DBeaver",
+      "Adminer",
+      "SonarQube",
+      "OpenProject",
+      "MobaXterm",
+      "Electerm",
+      "Asana",
+      "SOS",
+      "Workforce",
+      "Workcloud",
+      "Git",
+      "GitHub",
     ],
   },
 ];
 
 export const allSkills = Array.from(
-  new Set(experience.flatMap((job) => job.skills))
+  new Set(experience.flatMap((job) => job.skills)),
 ).sort();
 
 export const marqueeSkills = allSkills;
@@ -154,8 +274,17 @@ export const projects: Project[] = [
     client: "RHFL",
     company: "Tuskmelon Business Solutions",
     domain: "Banking",
-    stack: ["React.js", "Node.js", "cPanel", "Amazon EC2", "GoDaddy", "Nginx", "PM2"],
-    description: "Full deployment — Frontend on cPanel, Backend on EC2 with GoDaddy domain.",
+    stack: [
+      "React.js",
+      "Node.js",
+      "cPanel",
+      "Amazon EC2",
+      "GoDaddy",
+      "Nginx",
+      "PM2",
+    ],
+    description:
+      "Full deployment — Frontend on cPanel, Backend on EC2 with GoDaddy domain.",
   },
   {
     name: "Equitas Gurukul",
@@ -186,8 +315,16 @@ export const projects: Project[] = [
     client: "Equitas",
     company: "Tuskmelon Business Solutions",
     domain: "Enterprise",
-    stack: ["Amazon EC2", "WAF", "ACM", "Elastic Load Balancing", "Nginx", "PM2"],
-    description: "AWS deployment with WAF, Load Balancer, ACM, Security Groups, Nginx, and PM2.",
+    stack: [
+      "Amazon EC2",
+      "WAF",
+      "ACM",
+      "Elastic Load Balancing",
+      "Nginx",
+      "PM2",
+    ],
+    description:
+      "AWS deployment with WAF, Load Balancer, ACM, Security Groups, Nginx, and PM2.",
   },
   {
     name: "Social Media Manager",
@@ -195,7 +332,8 @@ export const projects: Project[] = [
     company: "Tuskmelon Business Solutions",
     domain: "Enterprise",
     stack: ["Next.js", "React.js"],
-    description: "Internal social media management application built with Next.js.",
+    description:
+      "Internal social media management application built with Next.js.",
   },
   {
     name: "Repco Bank",
@@ -211,7 +349,8 @@ export const projects: Project[] = [
     company: "Tuskmelon Business Solutions",
     domain: "Enterprise",
     stack: ["React.js", "Node.js", "Nginx", "PM2"],
-    description: "End-to-end deployment, server administration, and maintenance.",
+    description:
+      "End-to-end deployment, server administration, and maintenance.",
   },
   {
     name: "Workspace Platform",
@@ -243,7 +382,8 @@ export const projects: Project[] = [
     company: "CreditMantri",
     domain: "Banking",
     stack: ["Java", "Spring Boot", "J2EE", "PostgreSQL", "MySQL"],
-    description: "APIs for loan processing, customer onboarding, and KYC document uploads.",
+    description:
+      "APIs for loan processing, customer onboarding, and KYC document uploads.",
   },
   {
     name: "SBI Banking Modules",
@@ -251,7 +391,8 @@ export const projects: Project[] = [
     company: "CreditMantri",
     domain: "Banking",
     stack: ["Java", "Spring Boot", "JSP", "PostgreSQL"],
-    description: "Mission-critical modules — LDB, EDB, Emudhra — with QA and DevOps coordination.",
+    description:
+      "Mission-critical modules — LDB, EDB, Emudhra — with QA and DevOps coordination.",
   },
   {
     name: "Kurundhagaval SMS API",
@@ -259,7 +400,8 @@ export const projects: Project[] = [
     company: "CreditMantri",
     domain: "Fintech",
     stack: ["Java", "Spring Boot", "JSON", "WebEngage"],
-    description: "Custom SMS APIs with bulk and single-read logic; WebEngage integration.",
+    description:
+      "Custom SMS APIs with bulk and single-read logic; WebEngage integration.",
   },
   {
     name: "Daily Thanthi Media ERP",
@@ -267,11 +409,14 @@ export const projects: Project[] = [
     company: "Soft Media ERP",
     domain: "Media",
     stack: ["Java", "JSP", "Struts", "Hibernate", "Oracle Database", "JDBC"],
-    description: "Enterprise ERP — Advertisement, Circulation, Accounts, HR, Purchase modules.",
+    description:
+      "Enterprise ERP — Advertisement, Circulation, Accounts, HR, Purchase modules.",
   },
 ];
 
-export const projectCompanies = Array.from(new Set(projects.map((p) => p.company)));
+export const projectCompanies = Array.from(
+  new Set(projects.map((p) => p.company)),
+);
 
 export const education = [
   {
