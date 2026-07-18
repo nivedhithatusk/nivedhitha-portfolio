@@ -37,7 +37,7 @@ function getActiveSectionFromViewport() {
 
 function useActiveSectionLogic(): ActiveSectionContextValue {
   const lenis = useLenis();
-  const [activeId, setActiveId] = useState("about");
+  const [activeId, setActiveId] = useState("skills");
   const isNavigating = useRef(false);
   const activeRef = useRef(activeId);
 
@@ -54,7 +54,14 @@ function useActiveSectionLogic(): ActiveSectionContextValue {
       if (!el) return;
 
       isNavigating.current = true;
-      setActive(id);
+      const navId = id.startsWith("project-company-") ? "projects" : id;
+      setActive(navId);
+
+      // Keep hash for related-project deep links
+      if (id.startsWith("project-company-")) {
+        window.history.replaceState(null, "", `#${id}`);
+        window.dispatchEvent(new HashChangeEvent("hashchange"));
+      }
 
       if (lenis) {
         lenis.scrollTo(el, {

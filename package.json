@@ -7,9 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "resume:update": "python scripts/update-resume-docx.py",
+    "resume:generate": "python scripts/generate-resume-docx.py",
     "resume:pdf": "python scripts/docx-to-pdf.py",
-    "resume:build": "npm run resume:update && npm run resume:pdf"
+    "resume:build": "npm run resume:generate && npm run resume:pdf"
   },
   "dependencies": {
     "framer-motion": "^12.40.0",

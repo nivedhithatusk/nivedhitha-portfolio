@@ -6,18 +6,18 @@ const lines = [
   { prompt: "$ ", text: "whoami", delay: 0 },
   { prompt: "> ", text: "Nivedhitha A", delay: 800, color: "text-emerald-400" },
   { prompt: "$ ", text: "cat role.txt", delay: 1400 },
-  { prompt: "> ", text: "Software Engineer", delay: 2200, color: "text-sky-400" },
+  { prompt: "> ", text: "Full Stack Developer & DevOps Engineer", delay: 2200, color: "text-sky-400" },
   { prompt: "$ ", text: "cat location.txt", delay: 3000 },
   { prompt: "> ", text: "Chennai, Tamil Nadu", delay: 3600, color: "text-violet-400" },
   { prompt: "$ ", text: "stack --list", delay: 4200 },
   {
     prompt: "> ",
-    text: "Java · Spring Boot · Node.js · React.js · Next.js · AWS · Nginx · PM2",
+    text: "React.js · Next.js · Node.js · Java · Spring Boot · AWS · Nginx · PM2",
     delay: 5000,
     color: "text-amber-300",
   },
   { prompt: "$ ", text: "deploy --status", delay: 5800 },
-  { prompt: "> ", text: "10+ production projects live ✓", delay: 6500, color: "text-emerald-400" },
+  { prompt: "> ", text: "15+ production projects live ✓", delay: 6500, color: "text-emerald-400" },
   { prompt: "$ ", text: "_", delay: 7200, blink: true },
 ];
 

@@ -14,10 +14,17 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
-  title: "Nivedhitha A | Software Engineer",
+  title: "Nivedhitha A | Full Stack Developer & DevOps Engineer",
   description:
-    "Portfolio of Nivedhitha A — Software Engineer with 6+ years building enterprise web apps and 2+ years of deployment on Linux and AWS.",
+    "Portfolio of Nivedhitha A — Full Stack Developer & DevOps Engineer with 6+ years building enterprise web apps and 2+ years of deployment on Linux and AWS.",
   authors: [{ name: "Nivedhitha A" }],
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [{ url: "/apple-icon", type: "image/png", sizes: "180x180" }],
+  },
 };
 
 export default function RootLayout({

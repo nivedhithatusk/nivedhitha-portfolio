@@ -40,9 +40,9 @@ export default function Hero() {
           </p>
 
           <h1 className="font-[family-name:var(--font-syne)] text-[clamp(2rem,5vw,3.5rem)] font-extrabold leading-tight text-slate-900">
-            Software Engineer &
+            Full Stack Developer
             <br />
-            <span className="gradient-text-animated"> Deployment Engineer</span>
+            <span className="gradient-text-animated">& DevOps Engineer</span>
           </h1>
 
           <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">

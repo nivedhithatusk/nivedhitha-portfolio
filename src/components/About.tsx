@@ -2,94 +2,146 @@
 
 import { motion } from "framer-motion";
 import AnimatedSection, { SectionHeader } from "@/components/ui/AnimatedSection";
-import { personal, summary, education } from "@/data/resume";
+import { personal, education } from "@/data/resume";
+
+const focusAreas = [
+  {
+    title: "Full-stack delivery",
+    text: "Enterprise applications built with Java, Spring Boot, Node.js, React.js, and Next.js.",
+  },
+  {
+    title: "Deployment & cloud",
+    text: "Hands-on Linux and AWS delivery — Nginx, PM2, EC2, DNS, SSL, Load Balancers, and WAF.",
+  },
+  {
+    title: "Production support",
+    text: "Stable releases through troubleshooting, server administration, and cross-team collaboration.",
+  },
+];
+
+const domains = ["Banking", "Fintech", "Healthcare", "Media", "Enterprise"];
 
 export default function About() {
   return (
-    <section id="about" className="section-padding">
-      <div className="container-main">
+    <section id="about" className="section-padding relative overflow-hidden bg-white">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(249,115,22,0.06),_transparent_50%)]"
+      />
+
+      <div className="container-main relative">
         <AnimatedSection>
           <SectionHeader
-            number="01"
+            number="03"
             label="About Me"
             title="Who I Am"
-            subtitle={`${personal.yearsOfExperience} years of production-grade delivery`}
+            subtitle={`${personal.yearsOfExperience} years of production-grade engineering`}
           />
         </AnimatedSection>
 
-        <div className="grid items-center gap-10 lg:grid-cols-2">
-          <AnimatedSection delay={0.1}>
-            <div className="relative">
-              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-orange-200/40 via-pink-200/40 to-purple-200/40 blur-2xl" />
-              <div className="relative rounded-3xl border border-slate-200 bg-white p-8 shadow-xl">
-                <p className="text-lg leading-relaxed text-slate-600">{summary}</p>
-                <p className="mt-4 leading-relaxed text-slate-500">
-                  I bridge development and infrastructure — writing React & Next.js frontends,
-                  building Java & Node.js backends, and deploying on AWS with Nginx, PM2, and
-                  production-grade security.
+        <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-slate-200 bg-[var(--bg)] shadow-sm">
+          <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
+            {/* Profile panel */}
+            <div className="border-b border-slate-200 p-8 sm:p-10 lg:border-b-0 lg:border-r">
+              <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-orange-500">
+                Profile
+              </p>
+              <h3 className="mt-3 font-[family-name:var(--font-syne)] text-2xl font-bold text-slate-900 sm:text-3xl">
+                {personal.name}
+              </h3>
+              <p className="mt-1 text-sm font-semibold text-orange-600 sm:text-base">
+                {personal.designation}
+              </p>
+
+              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-slate-600">
+                Designs, develops, and supports enterprise web applications —
+                with hands-on ownership of deployment, cloud infrastructure, and
+                production reliability.
+              </p>
+
+              <div className="mt-8 space-y-4 border-t border-slate-200 pt-6">
+                {focusAreas.map((item, i) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ delay: i * 0.06 }}
+                    className="grid gap-1 sm:grid-cols-[150px_1fr] sm:gap-4"
+                  >
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 sm:pt-0.5">
+                      {item.title}
+                    </p>
+                    <p className="text-sm leading-relaxed text-slate-700">
+                      {item.text}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="mt-8">
+                <p className="mb-2.5 text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                  Domains
                 </p>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {["Banking", "Healthcare", "Enterprise"].map((d, i) => (
-                    <motion.span
+                <div className="flex flex-wrap gap-2">
+                  {domains.map((d) => (
+                    <span
                       key={d}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.1 }}
-                      className="rounded-full bg-gradient-to-r from-orange-100 to-purple-100 px-4 py-1.5 text-sm font-semibold text-purple-800"
+                      className="border border-orange-100 bg-orange-50/70 px-3 py-1.5 text-xs font-semibold text-orange-800/80"
                     >
                       {d}
-                    </motion.span>
+                    </span>
                   ))}
                 </div>
               </div>
             </div>
-          </AnimatedSection>
 
-          <AnimatedSection delay={0.2}>
-            <div className="space-y-4">
-              <p className="text-xs font-bold uppercase tracking-widest text-orange-500">Education</p>
-              {education.map((edu, i) => (
-                <motion.div
-                  key={edu.degree}
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  whileHover={{ x: 6 }}
-                  className="group flex gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md"
-                >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-pink-500 text-lg font-bold text-white">
-                    {i + 1}
-                  </div>
-                  <div>
-                    <p className="font-bold text-slate-800">{edu.degree}</p>
-                    <p className="text-sm text-slate-500">{edu.institution}</p>
-                    <p className="mt-1 text-xs font-semibold text-orange-500">{edu.period}</p>
-                  </div>
-                </motion.div>
-              ))}
+            {/* Education + CTAs */}
+            <div className="flex flex-col justify-between bg-white p-8 sm:p-10">
+              <div>
+                <p className="mb-5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-orange-500">
+                  Education
+                </p>
+                <ul className="space-y-5">
+                  {education.map((edu, i) => (
+                    <motion.li
+                      key={edu.degree}
+                      initial={{ opacity: 0, y: 8 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.08 }}
+                      className="border-l-2 border-orange-200 pl-4"
+                    >
+                      <p className="font-semibold text-slate-900">{edu.degree}</p>
+                      <p className="mt-0.5 text-sm text-slate-500">
+                        {edu.institution}
+                      </p>
+                      <p className="mt-1 font-mono text-xs text-slate-400">
+                        {edu.period}
+                      </p>
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
 
-              <div className="mt-4 flex flex-col gap-3 sm:flex-row">
-                <motion.a
+              <div className="mt-8 flex flex-col gap-3">
+                <a
                   href={personal.resume}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.02 }}
-                  className="flex flex-1 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 to-pink-500 py-4 text-sm font-bold text-white shadow-lg shadow-orange-500/25"
+                  className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-orange-500 to-pink-500 px-5 py-3.5 text-sm font-semibold text-white shadow-md shadow-orange-500/20 transition hover:brightness-105"
                 >
                   View Resume
-                </motion.a>
-                <motion.a
+                </a>
+                <a
                   href={`mailto:${personal.email}`}
-                  whileHover={{ scale: 1.02 }}
-                  className="flex flex-1 items-center justify-center rounded-2xl border-2 border-slate-300 bg-white py-4 text-sm font-bold text-slate-800 transition hover:border-emerald-500 hover:text-emerald-700"
+                  className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-[var(--bg)] px-5 py-3.5 text-sm font-semibold text-slate-800 transition hover:border-orange-300 hover:text-orange-700"
                 >
-                  Contact Me
-                </motion.a>
+                  Contact
+                </a>
               </div>
             </div>
-          </AnimatedSection>
+          </div>
         </div>
       </div>
     </section>

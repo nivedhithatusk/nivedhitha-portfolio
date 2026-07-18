@@ -17,6 +17,7 @@ export default function SmoothScroll({ children }: Props) {
         smoothWheel: true,
         wheelMultiplier: 0.9,
         touchMultiplier: 1.5,
+        allowNestedScroll: true,
       }}
     >
       {children}

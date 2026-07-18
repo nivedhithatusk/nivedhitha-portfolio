@@ -42,7 +42,7 @@ SKILL_ROWS = [
     ),
     (
         "Project Management & Business Tools: ",
-        "Asana, Workforce, Workcloud, SOS",
+        "Asana, Workforce, workspace",
     ),
 ]
 

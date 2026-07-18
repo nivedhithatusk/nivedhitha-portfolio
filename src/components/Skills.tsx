@@ -3,8 +3,9 @@
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedSection, { SectionHeader } from "@/components/ui/AnimatedSection";
+import NestedScrollPane from "@/components/ui/NestedScrollPane";
 import { allSkills, experience, skillCategories } from "@/data/resume";
-import { skillBrandIcons } from "@/icons";
+import { getSkillIcon, skillCategoryIcons } from "@/icons";
 
 type View = { type: "category"; index: number } | { type: "company"; index: number };
 
@@ -14,6 +15,9 @@ const categoryColors = [
   "text-cyan-400",
   "text-emerald-400",
   "text-amber-400",
+  "text-rose-400",
+  "text-sky-400",
+  "text-lime-400",
 ];
 
 type SkillEntry = { name: string; category?: string; inScope: boolean };
@@ -53,7 +57,7 @@ export default function Skills() {
     const skills: SkillEntry[] = skillCategories.flatMap((cat) =>
       cat.skills
         .filter((s) => jobSet.has(s))
-        .map((s) => ({ name: s, category: cat.title, inScope: true }))
+        .map((s) => ({ name: s, category: cat.title, inScope: true })),
     );
     const extra: SkillEntry[] = job.skills
       .filter((s) => !skills.some((x) => x.name === s))
@@ -73,23 +77,22 @@ export default function Skills() {
       <div className="container-main">
         <AnimatedSection>
           <SectionHeader
-            number="03"
+            number="01"
             label="Skills & Knowledge"
             title="What I Know & Use"
-            subtitle={`${allSkills.length} technologies — explore the stack tree or filter by company`}
+            subtitle={`${allSkills.length} technologies — scroll inside the panel; page scroll continues at the edges`}
           />
         </AnimatedSection>
 
-        {/* Terminal explorer */}
+        {/* Fixed-height terminal — content scrolls inside, not the page */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="overflow-hidden rounded-2xl border border-slate-800 bg-[#0d1117] shadow-2xl shadow-slate-900/15"
+          className="flex h-[90vh] flex-col overflow-hidden rounded-2xl border border-slate-800 bg-[#0d1117] shadow-2xl shadow-slate-900/15"
         >
-          {/* Title bar */}
-          <div className="flex items-center gap-2 border-b border-slate-800 bg-[#161b22] px-4 py-3">
+          <div className="flex shrink-0 items-center gap-2 border-b border-slate-800 bg-[#161b22] px-4 py-3">
             <span className="h-3 w-3 rounded-full bg-red-500" />
             <span className="h-3 w-3 rounded-full bg-yellow-500" />
             <span className="h-3 w-3 rounded-full bg-green-500" />
@@ -98,17 +101,16 @@ export default function Skills() {
             </span>
           </div>
 
-          {/* Command line */}
-          <div className="border-b border-slate-800/80 px-4 py-3 font-mono text-sm sm:px-6">
+          <div className="shrink-0 border-b border-slate-800/80 px-4 py-3 font-mono text-sm sm:px-6">
             <span className="text-emerald-500">$ </span>
             <span className="text-slate-300">{output.command}</span>
             <span className="ml-1 inline-block h-4 w-2 animate-pulse bg-emerald-400 align-middle" />
           </div>
 
-          <div className="grid lg:grid-cols-[minmax(220px,280px)_1fr]">
-            {/* Tree nav */}
-            <div className="border-b border-slate-800/80 font-mono text-sm lg:border-b-0 lg:border-r">
-              <div className="px-4 py-3 text-[10px] uppercase tracking-widest text-slate-600">
+          <div className="grid min-h-0 flex-1 lg:grid-cols-[minmax(200px,260px)_1fr]">
+            {/* Sidebar: scroll inside, then pass to page */}
+            <NestedScrollPane className="border-b border-slate-800/80 font-mono text-sm lg:border-b-0 lg:border-r [scrollbar-width:thin] [scrollbar-color:#334155_transparent]">
+              <div className="sticky top-0 z-10 bg-[#0d1117] px-4 py-3 text-[10px] uppercase tracking-widest text-slate-600">
                 ./skills/
               </div>
 
@@ -116,6 +118,7 @@ export default function Skills() {
                 <p className="px-2 py-1 text-[10px] text-slate-600">categories/</p>
                 {skillCategories.map((cat, i) => {
                   const active = view.type === "category" && view.index === i;
+                  const CatIcon = skillCategoryIcons[i] ?? skillCategoryIcons[0];
                   return (
                     <button
                       key={cat.title}
@@ -127,9 +130,21 @@ export default function Skills() {
                           : "text-slate-400 hover:bg-slate-800/50 hover:text-slate-200"
                       }`}
                     >
-                      <span className={categoryColors[i]}>├──</span>
-                      <span className={active ? categoryColors[i] : ""}>{cat.title}/</span>
-                      <span className="ml-auto text-[10px] text-slate-600">
+                      <CatIcon
+                        className={`h-3.5 w-3.5 shrink-0 ${
+                          active
+                            ? categoryColors[i % categoryColors.length]
+                            : "text-slate-500"
+                        }`}
+                      />
+                      <span
+                        className={`truncate ${
+                          active ? categoryColors[i % categoryColors.length] : ""
+                        }`}
+                      >
+                        {cat.title}/
+                      </span>
+                      <span className="ml-auto shrink-0 text-[10px] text-slate-600">
                         {cat.skills.length}
                       </span>
                     </button>
@@ -139,7 +154,7 @@ export default function Skills() {
 
               <div className="mx-4 border-t border-slate-800/80" />
 
-              <div className="px-2 py-2">
+              <div className="px-2 py-2 pb-4">
                 <p className="px-2 py-1 text-[10px] text-slate-600">companies/</p>
                 {experience.map((job, i) => {
                   const active = view.type === "company" && view.index === i;
@@ -163,10 +178,10 @@ export default function Skills() {
                   );
                 })}
               </div>
-            </div>
+            </NestedScrollPane>
 
-            {/* Output panel */}
-            <div className="min-h-[320px] p-4 sm:p-6 lg:min-h-[400px]">
+            {/* Body: scroll inside, then pass to page */}
+            <NestedScrollPane className="p-4 sm:p-6 [scrollbar-width:thin] [scrollbar-color:#334155_transparent]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={`${view.type}-${view.index}`}
@@ -191,12 +206,14 @@ export default function Skills() {
                   {output.grouped ? (
                     <div className="space-y-5">
                       {skillCategories.map((cat, ci) => {
-                        const items = output.skills.filter((s) => s.category === cat.title);
+                        const items = output.skills.filter(
+                          (s) => s.category === cat.title,
+                        );
                         if (items.length === 0) return null;
                         return (
                           <div key={cat.title}>
                             <p
-                              className={`mb-2 font-mono text-[10px] uppercase tracking-widest ${categoryColors[ci]}`}
+                              className={`mb-2 font-mono text-[10px] uppercase tracking-widest ${categoryColors[ci % categoryColors.length]}`}
                             >
                               [{cat.title}]
                             </p>
@@ -232,11 +249,10 @@ export default function Skills() {
                   )}
                 </motion.div>
               </AnimatePresence>
-            </div>
+            </NestedScrollPane>
           </div>
 
-          {/* Footer status bar */}
-          <div className="flex flex-wrap items-center justify-between gap-2 border-t border-slate-800 bg-[#161b22] px-4 py-2 font-mono text-[10px] text-slate-500 sm:px-6">
+          <div className="flex shrink-0 flex-wrap items-center justify-between gap-2 border-t border-slate-800 bg-[#161b22] px-4 py-2 font-mono text-[10px] text-slate-500 sm:px-6">
             <span>total: {allSkills.length} skills</span>
             <span>companies: {experience.length}</span>
             <span>categories: {skillCategories.length}</span>
@@ -248,17 +264,15 @@ export default function Skills() {
 }
 
 function SkillRow({ name }: { name: string }) {
-  const Icon = skillBrandIcons[name];
+  const { Icon, color } = getSkillIcon(name);
   return (
     <li className="group flex items-center gap-2.5 rounded-lg border border-transparent px-2 py-2 transition hover:border-slate-700 hover:bg-slate-800/40">
-      <span className="font-mono text-[10px] text-slate-600 group-hover:text-emerald-500">
-        ✓
+      <span
+        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-slate-700/80 bg-slate-900/80"
+        style={{ color }}
+      >
+        <Icon className="h-4 w-4" />
       </span>
-      {Icon ? (
-        <Icon className="h-4 w-4 shrink-0 text-slate-400 group-hover:text-white" />
-      ) : (
-        <span className="h-4 w-4 shrink-0 rounded bg-slate-700" />
-      )}
       <span className="text-sm text-slate-300 group-hover:text-white">{name}</span>
     </li>
   );
