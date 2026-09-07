@@ -1,20 +1,20 @@
 export const personal = {
   name: "Nivedhitha A",
   firstName: "Nivedhitha",
-  designation: "Full Stack Developer & DevOps Engineer",
+  designation: "Cloud & DevOps Engineer",
   tagline:
-    "Designing, developing, and deploying enterprise web applications on Linux and AWS.",
+    "AWS infrastructure, Linux administration, and production support for enterprise applications.",
   email: "nivedhithapraba@gmail.com",
   location: "Chennai, Tamil Nadu",
   linkedin: "https://www.linkedin.com/in/nivedhitha-praba-07925913a",
   portfolio: "https://nivedhitha-portfolio.vercel.app",
-  yearsOfExperience: "6+",
+  yearsOfExperience: "7+",
   resume: "/Nivedhitha_Professional_Resume.pdf",
   resumeLabel: "Nivedhitha_Professional_Resume.pdf",
 };
 
 export const summary =
-  "Full Stack Developer & DevOps Engineer with 6+ years of experience designing, developing, and supporting enterprise web applications, including 2+ years of hands-on application deployment, cloud infrastructure, and production support. Proficient in Java, Spring Boot, Node.js, React.js, and Next.js, with practical experience deploying and maintaining applications on Linux and AWS. Skilled in Nginx, PM2, Amazon EC2, Route 53, SSL, Load Balancers, WAF, cPanel, DNS management, and production troubleshooting. Delivers secure, scalable solutions in collaboration with cross-functional teams and clients across banking, fintech, healthcare, media, and enterprise domains.";
+  "Cloud & DevOps Engineer with 7+ years of overall IT experience, including 3+ years of hands-on experience in AWS cloud infrastructure, Linux administration, application deployment, and production support. Experienced in AWS EC2, Lightsail, Route 53, CloudFront, Load Balancer, WAF, ACM, Nginx, PM2, SSL, DNS, and server configuration. Strong experience in deploying and maintaining production applications, troubleshooting server and application issues, and supporting enterprise environments. Currently focused on building a career in Cloud & DevOps, with an emphasis on AWS infrastructure, automation, CI/CD, containerization, and scalable cloud environments.";
 
 export const navLinks = [
   { label: "Skills", href: "#skills" },
@@ -24,18 +24,43 @@ export const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-export const experience = [
+export type ExperienceRole = {
+  id: string;
+  company: string;
+  role: string;
+  roleSubtitle?: string;
+  period: string;
+  location: string;
+  highlights: string[];
+  keyProjects?: string[];
+  skills: string[];
+};
+
+export const experience: ExperienceRole[] = [
   {
     id: "tuskmelon",
     company: "Tuskmelon Business Solutions",
-    role: "Senior Full Stack Developer & DevOps Engineer",
+    role: "Cloud & DevOps Engineer",
+    roleSubtitle: "Senior Full Stack Developer & DevOps Engineer",
     period: "Sep 2023 – Present",
     location: "Chennai",
     highlights: [
-      "Own end-to-end delivery of full-stack apps — React.js, Next.js, Node.js, PHP, and Strapi — from build through production release.",
-      "Provision and harden Linux/AWS environments (EC2, Lightsail, Nginx, PM2, SSL, DNS) for banking, healthcare, and enterprise clients.",
-      "Lead production support: multi-environment config, logging, incident troubleshooting, and ongoing code maintenance across live systems.",
-      "Collaborate with developers and clients to ship secure, scalable releases on GoDaddy, cPanel, CWP, and AWS networking (WAF, ELB, ACM).",
+      "Provision and maintain AWS cloud infrastructure using EC2, Lightsail, Route 53, CloudFront, Elastic Load Balancing, WAF, and ACM for banking, healthcare, and enterprise clients.",
+      "Administer Linux/Ubuntu servers with Nginx, PM2, SSL/TLS, DNS, and reverse-proxy configurations across production environments.",
+      "Deploy and maintain production applications, troubleshoot server and application issues, and manage multi-environment configurations, logging, and production incidents.",
+      "Support full-stack application delivery using React.js, Next.js, Node.js, PHP, and Strapi, with deployments across AWS, GoDaddy, cPanel, and CWP environments.",
+    ],
+    keyProjects: [
+      "RHFL (Repco Home) — Next.js frontend and Strapi + MySQL backend deployed and maintained on AWS EC2 (Ubuntu).",
+      "Equitas Gurukul — Next.js frontend/admin application with Strapi + MySQL, developed and deployed on AWS EC2 (Ubuntu).",
+      "Medall Healthcare — Next.js frontend and Node.js backend deployed and maintained on AWS EC2 (Ubuntu).",
+      "City Union Bank (GMB) — React.js + Node.js + MySQL application deployed on AWS EC2, with domain configuration through GoDaddy.",
+      "Equitas Locate — Next.js + Strapi + MySQL application deployed on AWS EC2 (Ubuntu) with WAF, Elastic Load Balancer, ACM, Security Groups, Nginx, and PM2.",
+      "Repco Bank (Website) — PHP + MySQL website deployed and managed using cPanel.",
+      "Repco Bank (GMB) — React.js + Node.js application developed and deployed on AWS EC2 (Ubuntu).",
+      "Internal Platforms — Workforce, Workspace, TuskQR, Tusk Cloud, and Social Media Manager applications using Next.js/React/Node.js + MySQL, deployed on AWS EC2 and Lightsail.",
+      "Uniscan — Admin panel and website forms developed and deployed on AWS EC2 (Ubuntu), with ongoing production support for Unico, RHFL, Equitas, CUB, and Repco applications.",
+      "Aptus India Locate — Next.js + Strapi + MySQL application deployed and maintained on AWS EC2 (Ubuntu).",
     ],
     skills: [
       "React.js",
@@ -44,7 +69,6 @@ export const experience = [
       "PHP",
       "Strapi",
       "MySQL",
-      "MongoDB",
       "Tailwind CSS",
       "Ubuntu",
       "AWS EC2",
@@ -79,10 +103,11 @@ export const experience = [
     period: "Sep 2022 – Mar 2023",
     location: "Chennai",
     highlights: [
-      "Built and owned Java/Spring Boot APIs for loan processing, onboarding, and KYC in regulated banking workflows.",
-      "Integrated SMS, Email, and WhatsApp webhooks (WebEngage) and designed schemas for reliable production data flows.",
-      "Partnered with QA and DevOps on mission-critical bank modules — testing, releases, and production readiness.",
-      "Drove API quality with Postman suites, code reviews, and SonarQube-guided improvements.",
+      "Led API development for HDFC Fintech Personal Loan and Credit Card processing, customer onboarding, and KYC document uploads.",
+      "Implemented webhook integrations for SMS, Email, and WhatsApp using WebEngage.",
+      "Developed custom SMS APIs with bulk and single-message processing capabilities.",
+      "Delivered mission-critical SBI modules (LDB, EDB, and Emudhra) in coordination with QA and DevOps teams.",
+      "Managed end-to-end API delivery, Postman testing, database schema design, deployment support, and production issue resolution.",
     ],
     skills: [
       "Java",
@@ -109,9 +134,9 @@ export const experience = [
     period: "Feb 2022 – Sep 2022",
     location: "Chennai",
     highlights: [
-      "Completed a structured Java Full Stack program covering Spring Boot, REST APIs, and relational databases.",
-      "Practiced application builds with Java, JSP, MySQL, PostgreSQL, and Oracle Database.",
-      "Built fundamentals in Git, Linux, and cross-platform deployment practices.",
+      "Completed structured training in Java Full Stack Development, Spring Boot, REST APIs, and relational databases.",
+      "Developed applications using Java, Spring Boot, JSP, MySQL and PostgreSQL.",
+      "Gained practical experience with Git, Linux fundamentals, application deployment, and cross-platform deployment practices.",
     ],
     skills: [
       "Java",
@@ -124,7 +149,6 @@ export const experience = [
       "JSON",
       "MySQL",
       "PostgreSQL",
-      "Oracle Database",
       "Git",
       "Postman",
       "OpenProject",
@@ -139,9 +163,10 @@ export const experience = [
     period: "Jun 2019 – Feb 2022",
     location: "Chennai",
     highlights: [
-      "Engineered enterprise ERP modules for a large media publisher — ads, circulation, accounts, HR, and purchase.",
-      "Applied DAO patterns and JDBC/Oracle flows to keep data consistent across distributed systems.",
-      "Delivered PDF/Text reporting and automated payroll/procurement with role-based access controls.",
+      "Developed and maintained the Daily Thanthi Media ERP, covering Advertisement, Circulation, Accounts, HR, and Purchase modules.",
+      "Implemented DAO design patterns to support application architecture and data integrity.",
+      "Developed dynamic PDF and text reporting modules for business stakeholders.",
+      "Automated payroll and procurement workflows with role-based access controls.",
     ],
     skills: [
       "Java",
@@ -154,7 +179,6 @@ export const experience = [
       "JavaScript",
       "JDBC",
       "MySQL",
-      "Oracle Database",
       "MyEclipse",
       "Postman",
     ],
@@ -163,35 +187,73 @@ export const experience = [
 
 export const skillCategories = [
   {
-    title: "Deployment & Infrastructure",
+    title: "Cloud & AWS",
     skills: [
-      "Application Deployment",
-      "Linux Server Administration",
-      "Production Support",
-      "Server Migration",
-      "Infrastructure Management",
-      "Domain & DNS Management",
-      "SSL Certificate Installation",
-      "Reverse Proxy Configuration",
+      "AWS EC2",
+      "Lightsail",
+      "S3",
+      "CloudFront",
+      "Route 53",
+      "Elastic Load Balancing (ELB)",
+      "WAF",
+      "ACM",
+      "Security Groups",
     ],
   },
   {
-    title: "Cloud & DevOps",
+    title: "DevOps & Deployment",
     skills: [
-      "AWS EC2",
-      "Amazon Lightsail",
-      "Amazon S3",
-      "Amazon CloudFront",
-      "Amazon Route 53",
-      "AWS Certificate Manager (ACM)",
-      "Elastic Load Balancer (ELB)",
-      "AWS WAF",
+      "Application Deployment",
+      "Production Support",
+      "Release Management",
+      "Server Configuration",
+      "Environment Configuration",
+    ],
+  },
+  {
+    title: "Linux & Servers",
+    skills: [
+      "Ubuntu",
+      "Linux Administration",
       "Nginx",
       "PM2",
-      "Ubuntu",
+      "Reverse Proxy",
+      "Server Management",
+    ],
+  },
+  {
+    title: "Networking & Security",
+    skills: [
+      "DNS",
+      "SSL/TLS",
+      "Domain Configuration",
+      "HTTPS",
+      "Security Groups",
+      "WAF",
+      "Load Balancing",
+    ],
+  },
+  {
+    title: "Web & Hosting",
+    skills: [
+      "GoDaddy",
       "cPanel",
       "CWP",
-      "GoDaddy Hosting",
+      "Web Hosting",
+      "Domain & SSL Management",
+    ],
+  },
+  {
+    title: "Version Control",
+    skills: ["Git", "GitHub"],
+  },
+  {
+    title: "Monitoring & Troubleshooting",
+    skills: [
+      "Application Logs",
+      "Server Logs",
+      "Production Troubleshooting",
+      "Incident Support",
     ],
   },
   {
@@ -199,58 +261,43 @@ export const skillCategories = [
     skills: [
       "React.js",
       "Next.js",
-      "HTML5",
-      "CSS3",
-      "JavaScript (ES6+)",
+      "JavaScript",
+      "HTML",
+      "CSS",
       "Tailwind CSS",
-      "JSP",
-      "AJAX",
     ],
   },
   {
     title: "Backend",
     skills: [
       "Node.js",
+      "PHP",
+      "Strapi",
       "Java",
       "J2EE",
       "Spring Boot",
-      "Hibernate",
-      "Struts",
-      "PHP",
-      "Strapi",
       "REST APIs",
-      "JSON",
-      "JDBC",
     ],
   },
   {
     title: "Databases",
-    skills: ["MySQL", "PostgreSQL", "MongoDB", "Oracle Database"],
+    skills: ["MySQL", "PostgreSQL"],
   },
   {
-    title: "Version Control",
-    skills: ["Git", "GitHub"],
+    title: "API & Development Tools",
+    skills: ["Postman", "JSON", "AJAX", "JDBC", "Hibernate"],
   },
   {
-    title: "Tools & IDEs",
+    title: "Development Tools",
     skills: [
       "VS Code",
-      "Cursor",
       "IntelliJ IDEA",
-      "Spring Tool Suite (STS)",
-      "MyEclipse",
-      "Postman",
+      "STS",
       "DBeaver",
       "Adminer",
-      "SonarQube",
-      "OpenProject",
       "MobaXterm",
       "Electerm",
     ],
-  },
-  {
-    title: "Project Management",
-    skills: ["Asana", "Workforce", "workspace"],
   },
 ];
 
@@ -277,7 +324,7 @@ export const projects: Project[] = [
     domain: "Banking",
     stack: ["Next.js", "Strapi", "MySQL", "Linux"],
     description:
-      "Next.js frontend and Strapi + MySQL backend deployed on Linux.",
+      "Next.js frontend and Strapi + MySQL backend deployed and maintained on AWS EC2 (Ubuntu).",
   },
   {
     name: "Equitas Gurukul",
@@ -286,16 +333,16 @@ export const projects: Project[] = [
     domain: "Education",
     stack: ["Next.js", "Strapi", "MySQL", "Amazon EC2"],
     description:
-      "Next.js frontend/admin with Strapi + MySQL deployed on EC2 (Ubuntu).",
+      "Next.js frontend/admin application with Strapi + MySQL, developed and deployed on AWS EC2 (Ubuntu).",
   },
   {
     name: "Medall Healthcare",
     client: "Medall",
     company: "Tuskmelon Business Solutions",
     domain: "Healthcare",
-    stack: ["Next.js", "Node.js", "MongoDB", "Amazon EC2"],
+    stack: ["Next.js", "Node.js", "Amazon EC2"],
     description:
-      "Next.js frontend and Node.js + MongoDB backend deployed on EC2.",
+      "Next.js frontend and Node.js backend deployed and maintained on AWS EC2 (Ubuntu).",
   },
   {
     name: "City Union Bank GMB",
@@ -304,7 +351,7 @@ export const projects: Project[] = [
     domain: "Banking",
     stack: ["React.js", "Node.js", "MySQL", "Amazon EC2", "GoDaddy"],
     description:
-      "React.js + Node.js + MySQL application with EC2 and GoDaddy domain setup.",
+      "React.js + Node.js + MySQL application deployed on AWS EC2, with domain configuration through GoDaddy.",
   },
   {
     name: "Equitas Locate",
@@ -322,7 +369,16 @@ export const projects: Project[] = [
       "PM2",
     ],
     description:
-      "AWS deployment with WAF, Load Balancer, ACM, Security Groups, Nginx, and PM2.",
+      "Next.js + Strapi + MySQL deployed on AWS EC2 (Ubuntu) with WAF, Elastic Load Balancer, ACM, Security Groups, Nginx, and PM2.",
+  },
+  {
+    name: "Aptus India Locate",
+    client: "Aptus",
+    company: "Tuskmelon Business Solutions",
+    domain: "Enterprise",
+    stack: ["Next.js", "Strapi", "MySQL", "Amazon EC2"],
+    description:
+      "Next.js + Strapi + MySQL application deployed and maintained on AWS EC2 (Ubuntu).",
   },
   {
     name: "Social Media Manager",
@@ -331,25 +387,25 @@ export const projects: Project[] = [
     domain: "Enterprise",
     stack: ["Next.js", "MySQL", "Amazon EC2"],
     description:
-      "Internal full-stack Next.js + MySQL application deployed on EC2.",
+      "Internal Next.js + MySQL application deployed on AWS EC2 and Lightsail.",
   },
   {
     name: "Repco Bank",
     client: "Repco Bank",
     company: "Tuskmelon Business Solutions",
     domain: "Banking",
-    stack: ["PHP", "MySQL", "cPanel", "Node.js", "Ubuntu"],
+    stack: ["PHP", "MySQL", "cPanel"],
     description:
-      "PHP + MySQL website on cPanel; Node.js + MySQL backend on Ubuntu.",
+      "PHP + MySQL website deployed and managed using cPanel.",
   },
   {
     name: "Repco Bank GMB",
     client: "Repco Bank",
     company: "Tuskmelon Business Solutions",
     domain: "Banking",
-    stack: ["React.js", "Node.js", "MySQL", "Amazon EC2", "GoDaddy"],
+    stack: ["React.js", "Node.js", "MySQL", "Amazon EC2"],
     description:
-      "React.js + Node.js + MySQL GMB application deployed on EC2 with GoDaddy domain.",
+      "React.js + Node.js application developed and deployed on AWS EC2 (Ubuntu).",
   },
   {
     name: "Workforce Platform",
@@ -391,7 +447,7 @@ export const projects: Project[] = [
     domain: "Enterprise",
     stack: ["Admin Panel", "Ubuntu"],
     description:
-      "Admin panel and website forms developed and deployed on Ubuntu.",
+      "Admin panel and website forms developed and deployed on AWS EC2 (Ubuntu).",
   },
   {
     name: "HDFC Fintech PL & CC",
@@ -418,14 +474,14 @@ export const projects: Project[] = [
     domain: "Fintech",
     stack: ["Java", "Spring Boot", "JSON", "WebEngage"],
     description:
-      "Custom SMS APIs with bulk and single-read logic; WebEngage integration.",
+      "Custom SMS APIs with bulk and single-message processing; WebEngage integration.",
   },
   {
     name: "Daily Thanthi Media ERP",
     client: "Daily Thanthi",
     company: "Soft Media ERP",
     domain: "Media",
-    stack: ["Java", "JSP", "Struts", "Hibernate", "Oracle Database", "JDBC"],
+    stack: ["Java", "JSP", "Struts", "Hibernate", "JDBC"],
     description:
       "Enterprise ERP — Advertisement, Circulation, Accounts, HR, Purchase modules.",
   },
@@ -449,8 +505,8 @@ export const education = [
 ];
 
 export const stats = [
-  { value: "6+", label: "Years Experience" },
+  { value: "7+", label: "Years Experience" },
+  { value: "3+", label: "Cloud & DevOps" },
   { value: "15+", label: "Projects Deployed" },
   { value: "4", label: "Companies" },
-  { value: "100%", label: "Production Focus" },
 ];

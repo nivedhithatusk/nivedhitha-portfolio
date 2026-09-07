@@ -25,46 +25,61 @@ PORTFOLIO = "https://nivedhitha-portfolio.vercel.app"
 EMAIL = "nivedhithapraba@gmail.com"
 
 SUMMARY = (
-    "Full Stack Developer & DevOps Engineer with 6+ years of experience designing, "
-    "developing, and supporting enterprise web applications, including 2+ years of "
-    "hands-on application deployment, cloud infrastructure, and production support. "
-    "Proficient in Java, Spring Boot, Node.js, React.js, and Next.js, with practical "
-    "experience deploying and maintaining applications on Linux and AWS. Skilled in "
-    "Nginx, PM2, Amazon EC2, Route 53, SSL, Load Balancers, WAF, cPanel, DNS management, "
-    "and production troubleshooting. Delivers secure, scalable solutions in collaboration "
-    "with cross-functional teams and clients across banking, fintech, healthcare, media, "
-    "and enterprise domains."
+    "Cloud & DevOps Engineer with 7+ years of overall IT experience, including 3+ years "
+    "of hands-on experience in AWS cloud infrastructure, Linux administration, application "
+    "deployment, and production support. Experienced in AWS EC2, Lightsail, Route 53, "
+    "CloudFront, Load Balancer, WAF, ACM, Nginx, PM2, SSL, DNS, and server configuration. "
+    "Strong experience in deploying and maintaining production applications, troubleshooting "
+    "server and application issues, and supporting enterprise environments. Currently focused "
+    "on building a career in Cloud & DevOps, with an emphasis on AWS infrastructure, "
+    "automation, CI/CD, containerization, and scalable cloud environments."
 )
 
 SKILL_ROWS = [
     (
-        "Deployment",
-        "Application Deployment, Linux Admin, Production Support, Server Migration, "
-        "Infrastructure Management, Domain & DNS, SSL, Reverse Proxy",
+        "Cloud & AWS",
+        "AWS EC2, Lightsail, S3, CloudFront, Route 53, Elastic Load Balancing (ELB), WAF, ACM, Security Groups",
     ),
     (
-        "Cloud & DevOps",
-        "AWS EC2, Lightsail, S3, CloudFront, Route 53, ACM, ELB, WAF, Nginx, PM2, "
-        "Ubuntu, cPanel, CWP, GoDaddy Hosting",
+        "DevOps & Deployment",
+        "Application Deployment, Production Support, Release Management, Server Configuration, Environment Configuration",
+    ),
+    (
+        "Linux & Servers",
+        "Ubuntu, Linux Administration, Nginx, PM2, Reverse Proxy, Server Management",
+    ),
+    (
+        "Networking & Security",
+        "DNS, SSL/TLS, Domain Configuration, HTTPS, Security Groups, WAF, Load Balancing",
+    ),
+    (
+        "Web & Hosting",
+        "GoDaddy, cPanel, CWP, Web Hosting, Domain & SSL Management",
+    ),
+    ("Version Control", "Git, GitHub"),
+    (
+        "Monitoring & Troubleshooting",
+        "Application Logs, Server Logs, Production Troubleshooting, Incident Support",
     ),
     (
         "Frontend",
-        "React.js, Next.js, HTML5, CSS3, JavaScript (ES6+), Tailwind CSS, JSP, AJAX",
+        "React.js, Next.js, JavaScript, HTML, CSS, Tailwind CSS",
     ),
     (
         "Backend",
-        "Node.js, Java, J2EE, Spring Boot, Hibernate, Struts, PHP, Strapi, REST APIs, "
-        "JSON, JDBC",
+        "Node.js, PHP, Strapi, Java, J2EE, Spring Boot, REST APIs",
     ),
     (
         "Databases",
-        "MySQL, PostgreSQL, MongoDB, Oracle Database",
+        "MySQL, PostgreSQL",
     ),
     (
-        "Tools",
-        "Git, GitHub, VS Code, Cursor, IntelliJ IDEA, STS, MyEclipse, Postman, "
-        "DBeaver, Adminer, SonarQube, OpenProject, MobaXterm, Electerm, Asana, "
-        "Workforce, workspace",
+        "API & Development Tools",
+        "Postman, JSON, AJAX, JDBC, Hibernate",
+    ),
+    (
+        "Development Tools",
+        "VS Code, IntelliJ IDEA, STS, DBeaver, Adminer, MobaXterm, Electerm",
     ),
 ]
 
@@ -204,8 +219,8 @@ def add_skills_table(doc: Document, rows: list[tuple[str, str]]) -> None:
     table = doc.add_table(rows=len(rows), cols=2)
     table.autofit = False
 
-    # ~1.55" category | ~5.4" skills (A4 content width ~7")
-    widths = (Inches(1.55), Inches(5.4))
+    # ~2.05" category | ~4.9" skills (A4 content width ~7")
+    widths = (Inches(2.05), Inches(4.9))
     hairline = {"val": "single", "sz": 4, "color": RULE}
 
     for i, (label, value) in enumerate(rows):
@@ -220,7 +235,7 @@ def add_skills_table(doc: Document, rows: list[tuple[str, str]]) -> None:
         cp = cat_cell.paragraphs[0]
         style_paragraph(cp, space_before=1, space_after=1, line_spacing=1.05)
         cr = cp.add_run(label)
-        set_run_font(cr, size=9.5, bold=True, color=TEAL)
+        set_run_font(cr, size=8.5, bold=True, color=TEAL)
         set_cell_shading(cat_cell, "F0FDFA")  # mild teal tint
         set_cell_border(cat_cell, top=hairline, left=hairline, bottom=hairline, right=hairline)
 
@@ -229,7 +244,7 @@ def add_skills_table(doc: Document, rows: list[tuple[str, str]]) -> None:
         sp = skill_cell.paragraphs[0]
         style_paragraph(sp, space_before=1, space_after=1, line_spacing=1.05)
         sr = sp.add_run(value)
-        set_run_font(sr, size=9.5, color=INK)
+        set_run_font(sr, size=9, color=INK)
         set_cell_border(skill_cell, top=hairline, left=hairline, bottom=hairline, right=hairline)
 
         # Compact cell margins
@@ -250,11 +265,22 @@ def add_skills_table(doc: Document, rows: list[tuple[str, str]]) -> None:
 
 
 
-def add_job_header(doc: Document, company_role: str, period_location: str) -> None:
+def add_job_header(
+    doc: Document,
+    company_role: str,
+    period_location: str,
+    subtitle: str | None = None,
+) -> None:
     p = doc.add_paragraph()
     style_paragraph(p, space_before=8, space_after=0, line_spacing=1.05)
     run = p.add_run(company_role)
     set_run_font(run, size=10.5, bold=True, color=INK)
+
+    if subtitle:
+        p_sub = doc.add_paragraph()
+        style_paragraph(p_sub, space_before=0, space_after=0, line_spacing=1.05)
+        run_sub = p_sub.add_run(subtitle)
+        set_run_font(run_sub, size=10.5, bold=False, color=INK)
 
     p2 = doc.add_paragraph()
     style_paragraph(p2, space_before=0, space_after=2, line_spacing=1.05)
@@ -301,7 +327,7 @@ def build() -> Document:
     # Title
     title = doc.add_paragraph()
     style_paragraph(title, space_after=2, line_spacing=1.05, align=WD_ALIGN_PARAGRAPH.CENTER)
-    r = title.add_run("Full Stack Developer & DevOps Engineer")
+    r = title.add_run("Cloud & DevOps Engineer")
     set_run_font(r, size=12, bold=True, color=TEAL)
 
     # Contact
@@ -331,27 +357,30 @@ def build() -> Document:
     # Tuskmelon
     add_job_header(
         doc,
-        "Tuskmelon Business Solutions  |  Senior Full Stack Developer & DevOps Engineer",
+        "Tuskmelon Business Solutions  |  Cloud & DevOps Engineer",
         "Sep 2023 – Present  |  Chennai",
+        subtitle="Senior Full Stack Developer & DevOps Engineer",
     )
     for bullet in [
-        "Develop and deploy full-stack applications using React.js, Next.js, Node.js, PHP, and Strapi.",
-        "Provision and maintain AWS EC2, Amazon Lightsail, GoDaddy, cPanel, and CWP environments, including SSL and domain configuration.",
-        "Manage Nginx + PM2 deployments, AWS Certificate Manager (ACM), and DNS via Route 53 and GoDaddy.",
-        "Handle multi-environment server configuration, logging, and production troubleshooting for banking, healthcare, and enterprise clients.",
+        "Provision and maintain AWS cloud infrastructure using EC2, Lightsail, Route 53, CloudFront, Elastic Load Balancing, WAF, and ACM for banking, healthcare, and enterprise clients.",
+        "Administer Linux/Ubuntu servers with Nginx, PM2, SSL/TLS, DNS, and reverse-proxy configurations across production environments.",
+        "Deploy and maintain production applications, troubleshoot server and application issues, and manage multi-environment configurations, logging, and production incidents.",
+        "Support full-stack application delivery using React.js, Next.js, Node.js, PHP, and Strapi, with deployments across AWS, GoDaddy, cPanel, and CWP environments.",
     ]:
         add_bullet(doc, bullet)
 
     add_subheading(doc, "Key Projects")
     for bullet in [
-        "RHFL (Repco Home) — Next.js frontend and Strapi + MySQL backend deployed on Linux.",
-        "Equitas Gurukul — Next.js frontend/admin with Strapi + MySQL; deployed on EC2 (Ubuntu).",
-        "Medall Healthcare — Next.js frontend and Node.js + MongoDB backend on EC2 (Ubuntu).",
-        "City Union Bank (GMB) — React.js + Node.js + MySQL; EC2 deployment with GoDaddy domain.",
-        "Equitas Locate — Next.js + Strapi + MySQL on AWS with WAF, Load Balancer, ACM, Security Groups, Nginx, and PM2.",
-        "Repco Bank & Repco Bank (GMB) — PHP/cPanel website and React/Node.js GMB stack on Ubuntu/EC2.",
-        "Internal platforms (Workforce, Workspace, TuskQR, Tusk Cloud, Social Media Manager) — Next.js/React/Node.js + MySQL on EC2 and Lightsail.",
-        "Uniscan — Admin panel and website forms developed and deployed on Ubuntu; ongoing production support for Unico, RHFL, Equitas, CUB, and Repco applications.",
+        "RHFL (Repco Home) — Next.js frontend and Strapi + MySQL backend deployed and maintained on AWS EC2 (Ubuntu).",
+        "Equitas Gurukul — Next.js frontend/admin application with Strapi + MySQL, developed and deployed on AWS EC2 (Ubuntu).",
+        "Medall Healthcare — Next.js frontend and Node.js backend deployed and maintained on AWS EC2 (Ubuntu).",
+        "City Union Bank (GMB) — React.js + Node.js + MySQL application deployed on AWS EC2, with domain configuration through GoDaddy.",
+        "Equitas Locate — Next.js + Strapi + MySQL application deployed on AWS EC2 (Ubuntu) with WAF, Elastic Load Balancer, ACM, Security Groups, Nginx, and PM2.",
+        "Repco Bank (Website) — PHP + MySQL website deployed and managed using cPanel.",
+        "Repco Bank (GMB) — React.js + Node.js application developed and deployed on AWS EC2 (Ubuntu).",
+        "Internal Platforms — Workforce, Workspace, TuskQR, Tusk Cloud, and Social Media Manager applications using Next.js/React/Node.js + MySQL, deployed on AWS EC2 and Lightsail.",
+        "Uniscan — Admin panel and website forms developed and deployed on AWS EC2 (Ubuntu), with ongoing production support for Unico, RHFL, Equitas, CUB, and Repco applications.",
+        "Aptus India Locate — Next.js + Strapi + MySQL application deployed and maintained on AWS EC2 (Ubuntu).",
     ]:
         add_bullet(doc, bullet)
 
@@ -362,11 +391,11 @@ def build() -> Document:
         "Sep 2022 – Mar 2023  |  Chennai",
     )
     for bullet in [
-        "Led HDFC Fintech PL & CC API development for loan processing, customer onboarding, and KYC document uploads.",
-        "Implemented webhook integrations for SMS, Email, and WhatsApp via WebEngage.",
-        "Built custom SMS APIs for the Kurundhagaval project with bulk and single-read processing logic.",
-        "Delivered mission-critical SBI modules (LDB, EDB, Emudhra) in coordination with QA and DevOps teams.",
-        "Owned end-to-end API delivery, Postman testing, database schema design, and production deployments.",
+        "Led API development for HDFC Fintech Personal Loan and Credit Card processing, customer onboarding, and KYC document uploads.",
+        "Implemented webhook integrations for SMS, Email, and WhatsApp using WebEngage.",
+        "Developed custom SMS APIs with bulk and single-message processing capabilities.",
+        "Delivered mission-critical SBI modules (LDB, EDB, and Emudhra) in coordination with QA and DevOps teams.",
+        "Managed end-to-end API delivery, Postman testing, database schema design, deployment support, and production issue resolution.",
     ]:
         add_bullet(doc, bullet)
 
@@ -377,9 +406,9 @@ def build() -> Document:
         "Feb 2022 – Sep 2022  |  Chennai",
     )
     for bullet in [
-        "Completed a structured Java Full Stack Development program covering Spring Boot, REST APIs, and relational databases.",
-        "Built applications using Java, Spring Boot, JSP, MySQL, PostgreSQL, and Oracle Database.",
-        "Gained practical exposure to Git, Linux fundamentals, and cross-platform deployment practices.",
+        "Completed structured training in Java Full Stack Development, Spring Boot, REST APIs, and relational databases.",
+        "Developed applications using Java, Spring Boot, JSP, MySQL and PostgreSQL.",
+        "Gained practical experience with Git, Linux fundamentals, application deployment, and cross-platform deployment practices.",
     ]:
         add_bullet(doc, bullet)
 
@@ -390,9 +419,9 @@ def build() -> Document:
         "Jun 2019 – Feb 2022  |  Chennai",
     )
     for bullet in [
-        "Developed the Daily Thanthi Media ERP covering Advertisement, Circulation, Accounts, HR, and Purchase modules.",
-        "Implemented DAO design patterns to maintain data integrity across distributed systems.",
-        "Built dynamic PDF/Text reporting modules for business stakeholders.",
+        "Developed and maintained the Daily Thanthi Media ERP, covering Advertisement, Circulation, Accounts, HR, and Purchase modules.",
+        "Implemented DAO design patterns to support application architecture and data integrity.",
+        "Developed dynamic PDF and text reporting modules for business stakeholders.",
         "Automated payroll and procurement workflows with role-based access controls.",
     ]:
         add_bullet(doc, bullet)

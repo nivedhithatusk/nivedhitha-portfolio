@@ -18,6 +18,10 @@ const categoryColors = [
   "text-rose-400",
   "text-sky-400",
   "text-lime-400",
+  "text-pink-400",
+  "text-teal-400",
+  "text-indigo-400",
+  "text-yellow-400",
 ];
 
 type SkillEntry = { name: string; category?: string; inScope: boolean };

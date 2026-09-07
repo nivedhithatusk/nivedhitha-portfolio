@@ -58,7 +58,7 @@ export default function Contact() {
             number="05"
             label="Contact"
             title="Get In Touch"
-            subtitle="Open to full-time, contract, and DevOps consulting"
+            subtitle="Open to Cloud & DevOps roles — AWS, Linux, and production support"
           />
         </AnimatedSection>
 
@@ -70,7 +70,7 @@ export default function Contact() {
                 <span className="gradient-text-animated">production-ready.</span>
               </p>
               <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-slate-500 sm:text-base">
-                Full-stack delivery, cloud deployment, and production support —
+                AWS infrastructure, Linux administration, and production support —
                 drop a message anytime.
               </p>
             </div>

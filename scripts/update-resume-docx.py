@@ -13,49 +13,64 @@ PUBLIC_DOCX = ROOT / "public" / "Nivedhitha_Professional_Resume.docx"
 
 SKILL_ROWS = [
     (
-        "Deployment & Infrastructure: ",
-        "Application Deployment, Linux Server Administration, Production Support, Server Migration, Infrastructure Management, Domain & DNS Management, SSL Certificate Installation, Reverse Proxy Configuration",
+        "Cloud & AWS: ",
+        "AWS EC2, Lightsail, S3, CloudFront, Route 53, Elastic Load Balancing (ELB), WAF, ACM, Security Groups",
     ),
     (
-        "Cloud & DevOps: ",
-        "AWS EC2, Amazon S3, Amazon CloudFront, Amazon Route 53, AWS Certificate Manager (ACM), Elastic Load Balancer (ELB), AWS WAF, Nginx, PM2, Ubuntu, cPanel, GoDaddy Hosting",
+        "DevOps & Deployment: ",
+        "Application Deployment, Production Support, Release Management, Server Configuration, Environment Configuration",
     ),
     (
-        "Frontend: ",
-        "React.js, Next.js, HTML5, CSS3, JavaScript (ES6+), Tailwind CSS, JSP, AJAX",
+        "Linux & Servers: ",
+        "Ubuntu, Linux Administration, Nginx, PM2, Reverse Proxy, Server Management",
     ),
     (
-        "Backend: ",
-        "Node.js, Java, Core Java, J2EE, Spring Boot, Hibernate, Struts, REST APIs, JSON, JDBC",
+        "Networking & Security: ",
+        "DNS, SSL/TLS, Domain Configuration, HTTPS, Security Groups, WAF, Load Balancing",
     ),
     (
-        "Databases: ",
-        "MySQL, PostgreSQL, Oracle Database",
+        "Web & Hosting: ",
+        "GoDaddy, cPanel, CWP, Web Hosting, Domain & SSL Management",
     ),
     (
         "Version Control: ",
         "Git, GitHub",
     ),
     (
-        "Tools & IDEs: ",
-        "VS Code, Cursor, IntelliJ IDEA, Spring Tool Suite (STS), MyEclipse, Postman, DBeaver, Adminer, SonarQube, OpenProject, MobaXterm, Electerm",
+        "Monitoring & Troubleshooting: ",
+        "Application Logs, Server Logs, Production Troubleshooting, Incident Support",
     ),
     (
-        "Project Management & Business Tools: ",
-        "Asana, Workforce, workspace",
+        "Frontend: ",
+        "React.js, Next.js, JavaScript, HTML, CSS, Tailwind CSS",
+    ),
+    (
+        "Backend: ",
+        "Node.js, PHP, Strapi, Java, J2EE, Spring Boot, REST APIs",
+    ),
+    (
+        "Databases: ",
+        "MySQL, PostgreSQL",
+    ),
+    (
+        "API & Development Tools: ",
+        "Postman, JSON, AJAX, JDBC, Hibernate",
+    ),
+    (
+        "Development Tools: ",
+        "VS Code, IntelliJ IDEA, STS, DBeaver, Adminer, MobaXterm, Electerm",
     ),
 ]
 
 SUMMARY = (
-    "Software Engineer with 6+ years of experience in designing, developing, and "
-    "supporting enterprise web applications, including 2+ years of hands-on experience "
-    "in application deployment, cloud infrastructure, and production support. "
-    "Proficient in Java, Spring Boot, Node.js, React.js, and Next.js, with practical "
-    "experience deploying and maintaining applications on Linux and AWS environments. "
-    "Skilled in configuring Nginx, PM2, Amazon EC2, Route 53, SSL, Load Balancers, WAF, "
-    "cPanel, DNS management, and production troubleshooting. Experienced in delivering "
-    "secure, scalable, and reliable solutions while collaborating with cross-functional "
-    "teams and clients across banking, fintech, healthcare, media, and enterprise domains."
+    "Cloud & DevOps Engineer with 7+ years of overall IT experience, including 3+ years "
+    "of hands-on experience in AWS cloud infrastructure, Linux administration, application "
+    "deployment, and production support. Experienced in AWS EC2, Lightsail, Route 53, "
+    "CloudFront, Load Balancer, WAF, ACM, Nginx, PM2, SSL, DNS, and server configuration. "
+    "Strong experience in deploying and maintaining production applications, troubleshooting "
+    "server and application issues, and supporting enterprise environments. Currently focused "
+    "on building a career in Cloud & DevOps, with an emphasis on AWS infrastructure, "
+    "automation, CI/CD, containerization, and scalable cloud environments."
 )
 
 
@@ -106,7 +121,7 @@ def main() -> None:
     paras = doc.paragraphs
 
     # Title line
-    set_run_text(paras[1], "Software Engineer", bold=True)
+    set_run_text(paras[1], "Cloud & DevOps Engineer", bold=True)
 
     # Summary heading already correct; ensure body text
     set_run_text(paras[6], SUMMARY)

@@ -73,9 +73,14 @@ export default function ExperienceSection() {
               <h3 className="mt-2 font-[family-name:var(--font-syne)] text-2xl font-bold text-slate-900 sm:text-3xl lg:text-4xl">
                 {role.company}
               </h3>
-              <p className="mt-1 text-sm font-semibold text-slate-600 sm:text-base">
+              <p className="mt-1 text-sm font-semibold text-slate-700 sm:text-base">
                 {role.role}
               </p>
+              {role.roleSubtitle && (
+                <p className="mt-0.5 text-sm text-slate-500">
+                  {role.roleSubtitle}
+                </p>
+              )}
             </div>
             {i === 0 && (
               <span
@@ -87,25 +92,49 @@ export default function ExperienceSection() {
           </div>
 
           <div className="grid min-h-0 flex-1 gap-0 lg:grid-cols-[1.2fr_0.8fr]">
-            <ul
+            <div
               data-lenis-prevent
-              className="min-h-0 space-y-3 overflow-y-auto overscroll-contain px-6 py-6 sm:px-10 [scrollbar-width:thin]"
+              className="min-h-0 space-y-5 overflow-y-auto overscroll-contain px-6 py-6 sm:px-10 [scrollbar-width:thin]"
             >
-              <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
-                Role focus
-              </p>
-              {role.highlights.map((point) => (
-                <li
-                  key={point}
-                  className="flex gap-3 text-sm leading-relaxed text-slate-600 sm:text-[15px]"
-                >
-                  <span
-                    className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${theme.dot}`}
-                  />
-                  {point}
-                </li>
-              ))}
-            </ul>
+              <div>
+                <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
+                  Role focus
+                </p>
+                <ul className="space-y-3">
+                  {role.highlights.map((point) => (
+                    <li
+                      key={point}
+                      className="flex gap-3 text-sm leading-relaxed text-slate-600 sm:text-[15px]"
+                    >
+                      <span
+                        className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${theme.dot}`}
+                      />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {role.keyProjects && role.keyProjects.length > 0 && (
+                <div>
+                  <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
+                    Key projects
+                  </p>
+                  <ul className="space-y-3">
+                    {role.keyProjects.map((project) => (
+                      <li
+                        key={project}
+                        className="flex gap-3 text-sm leading-relaxed text-slate-600 sm:text-[15px]"
+                      >
+                        <span
+                          className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${theme.dot}`}
+                        />
+                        {project}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
 
             <div
               className={`flex flex-col border-t border-slate-100/80 px-6 py-6 sm:px-8 lg:border-l lg:border-t-0 ${theme.panel}`}

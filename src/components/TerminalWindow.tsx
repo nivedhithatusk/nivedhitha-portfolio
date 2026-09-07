@@ -6,13 +6,13 @@ const lines = [
   { prompt: "$ ", text: "whoami", delay: 0 },
   { prompt: "> ", text: "Nivedhitha A", delay: 800, color: "text-emerald-400" },
   { prompt: "$ ", text: "cat role.txt", delay: 1400 },
-  { prompt: "> ", text: "Full Stack Developer & DevOps Engineer", delay: 2200, color: "text-sky-400" },
+  { prompt: "> ", text: "Cloud & DevOps Engineer", delay: 2200, color: "text-sky-400" },
   { prompt: "$ ", text: "cat location.txt", delay: 3000 },
   { prompt: "> ", text: "Chennai, Tamil Nadu", delay: 3600, color: "text-violet-400" },
   { prompt: "$ ", text: "stack --list", delay: 4200 },
   {
     prompt: "> ",
-    text: "React.js · Next.js · Node.js · Java · Spring Boot · AWS · Nginx · PM2",
+    text: "AWS EC2 · Lightsail · Route 53 · CloudFront · Nginx · PM2 · Linux",
     delay: 5000,
     color: "text-amber-300",
   },
@@ -39,7 +39,7 @@ export default function TerminalWindow() {
         <span className="h-3 w-3 rounded-full bg-green-500" />
         <span className="ml-3 font-mono text-xs text-slate-500">nivedhitha@portfolio ~ bash</span>
       </div>
-      <div className="min-h-[320px] p-5 font-mono text-sm leading-relaxed sm:min-h-[360px] sm:p-6 sm:text-[15px]">
+      <div className="min-h-[260px] p-5 font-mono text-sm leading-relaxed sm:min-h-[300px] sm:p-6 sm:text-[15px]">
         {lines.slice(0, visible).map((line, i) => (
           <div key={i} className="flex flex-wrap gap-x-1">
             <span className="text-emerald-500">{line.prompt}</span>

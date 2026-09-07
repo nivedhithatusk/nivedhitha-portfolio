@@ -14,10 +14,10 @@ export default function Hero() {
     navigateTo(href);
   };
   return (
-    <section className="relative min-h-screen overflow-hidden pt-24 pb-16">
+    <section className="relative flex min-h-svh items-center overflow-hidden pt-24 pb-12">
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,#fafbff_0%,#f0f4ff_100%)]" />
 
-      <div className="container-main relative grid w-full items-center gap-10 lg:grid-cols-2 lg:gap-12">
+      <div className="container-main relative grid w-full items-center gap-8 lg:grid-cols-2 lg:gap-14">
         {/* Terminal */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -36,13 +36,13 @@ export default function Hero() {
           className="order-1 w-full min-w-0 lg:order-2"
         >
           <p className="mb-4 font-mono text-sm text-emerald-600">
-            ~/developer/nivedhitha<span className="animate-pulse">_</span>
+            ~/cloud/nivedhitha<span className="animate-pulse">_</span>
           </p>
 
-          <h1 className="font-[family-name:var(--font-syne)] text-[clamp(2rem,5vw,3.5rem)] font-extrabold leading-tight text-slate-900">
-            Full Stack Developer
+          <h1 className="font-[family-name:var(--font-syne)] text-[clamp(2.35rem,6vw,4rem)] font-extrabold leading-[1.08] tracking-tight text-slate-900">
+            Cloud &
             <br />
-            <span className="gradient-text-animated">& DevOps Engineer</span>
+            <span className="gradient-text-animated">DevOps Engineer</span>
           </h1>
 
           <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
@@ -51,11 +51,11 @@ export default function Hero() {
             {personal.tagline}
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#projects"
               onClick={goTo("#projects")}
-              className="group inline-flex items-center gap-2 rounded-lg bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+              className="group inline-flex items-center gap-2 rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-semibold whitespace-nowrap text-white transition hover:bg-slate-800"
             >
               View Projects
               <HiOutlineArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
@@ -64,7 +64,7 @@ export default function Hero() {
               href={personal.resume}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 rounded-lg border-2 border-emerald-500 bg-emerald-50 px-6 py-3 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-100"
+              className="group inline-flex items-center gap-2 rounded-lg border-2 border-emerald-500 bg-emerald-50 px-5 py-2.5 text-sm font-semibold whitespace-nowrap text-emerald-800 transition hover:bg-emerald-100"
             >
               View Resume
               <HiOutlineArrowTopRightOnSquare className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -72,22 +72,22 @@ export default function Hero() {
             <a
               href="#contact"
               onClick={goTo("#contact")}
-              className="inline-flex items-center gap-2 rounded-lg border-2 border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-emerald-500 hover:text-emerald-700"
+              className="inline-flex items-center gap-2 rounded-lg border-2 border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold whitespace-nowrap text-slate-800 transition hover:border-emerald-500 hover:text-emerald-700"
             >
               Contact Me
             </a>
           </div>
 
-          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm"
+                className="rounded-xl border border-slate-200 bg-white px-2 py-3 text-center shadow-sm"
               >
                 <p className="font-[family-name:var(--font-syne)] text-xl font-bold text-slate-900 sm:text-2xl">
                   {s.value}
                 </p>
-                <p className="mt-0.5 text-[10px] font-medium text-slate-500 sm:text-xs">
+                <p className="mt-0.5 text-[10px] leading-tight font-medium text-slate-500 sm:text-xs">
                   {s.label}
                 </p>
               </div>

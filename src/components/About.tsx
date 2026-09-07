@@ -6,16 +6,16 @@ import { personal, education } from "@/data/resume";
 
 const focusAreas = [
   {
-    title: "Full-stack delivery",
-    text: "Enterprise applications built with Java, Spring Boot, Node.js, React.js, and Next.js.",
-  },
-  {
-    title: "Deployment & cloud",
-    text: "Hands-on Linux and AWS delivery — Nginx, PM2, EC2, DNS, SSL, Load Balancers, and WAF.",
+    title: "Cloud & DevOps",
+    text: "Hands-on AWS infrastructure — EC2, Lightsail, Route 53, CloudFront, Load Balancer, WAF, ACM, Nginx, and PM2.",
   },
   {
     title: "Production support",
-    text: "Stable releases through troubleshooting, server administration, and cross-team collaboration.",
+    text: "Deploying and maintaining production applications, troubleshooting server and application issues, and supporting enterprise environments.",
+  },
+  {
+    title: "Full-stack background",
+    text: "4+ years building enterprise applications with Java, Spring Boot, Node.js, React.js, and Next.js.",
   },
 ];
 
@@ -35,7 +35,7 @@ export default function About() {
             number="03"
             label="About Me"
             title="Who I Am"
-            subtitle={`${personal.yearsOfExperience} years of production-grade engineering`}
+            subtitle={`${personal.yearsOfExperience} years of IT experience, including 3+ years in Cloud & DevOps`}
           />
         </AnimatedSection>
 
@@ -54,9 +54,9 @@ export default function About() {
               </p>
 
               <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-slate-600">
-                Designs, develops, and supports enterprise web applications —
-                with hands-on ownership of deployment, cloud infrastructure, and
-                production reliability.
+                Cloud & DevOps Engineer with 7+ years of overall IT experience,
+                including 3+ years of hands-on AWS infrastructure, Linux
+                administration, application deployment, and production support.
               </p>
 
               <div className="mt-8 space-y-4 border-t border-slate-200 pt-6">
