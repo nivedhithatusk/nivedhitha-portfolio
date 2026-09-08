@@ -88,13 +88,13 @@ function StackCard({
       className="sticky flex items-start justify-center px-0"
       style={{
         top: offsetTop,
-        height: "80vh",
+        height: "84vh",
         zIndex: index + 1,
       }}
     >
       <motion.div
         style={{ scale, opacity }}
-        className={`origin-top h-[min(72vh,720px)] w-full will-change-transform ${
+        className={`origin-top h-[min(76vh,780px)] w-full will-change-transform ${
           fullWidth ? "max-w-none" : "max-w-4xl"
         }`}
       >

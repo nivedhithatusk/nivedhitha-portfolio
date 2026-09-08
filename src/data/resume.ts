@@ -357,7 +357,7 @@ export const projects: Project[] = [
     name: "Equitas Locate",
     client: "Equitas",
     company: "Tuskmelon Business Solutions",
-    domain: "Enterprise",
+    domain: "Banking",
     stack: [
       "Next.js",
       "Strapi",
@@ -375,7 +375,7 @@ export const projects: Project[] = [
     name: "Aptus India Locate",
     client: "Aptus",
     company: "Tuskmelon Business Solutions",
-    domain: "Enterprise",
+    domain: "Banking",
     stack: ["Next.js", "Strapi", "MySQL", "Amazon EC2"],
     description:
       "Next.js + Strapi + MySQL application deployed and maintained on AWS EC2 (Ubuntu).",
@@ -444,7 +444,7 @@ export const projects: Project[] = [
     name: "Uniscan",
     client: "Uniscan",
     company: "Tuskmelon Business Solutions",
-    domain: "Enterprise",
+    domain: "Healthcare",
     stack: ["Admin Panel", "Ubuntu"],
     description:
       "Admin panel and website forms developed and deployed on AWS EC2 (Ubuntu).",

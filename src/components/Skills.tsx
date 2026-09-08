@@ -113,7 +113,7 @@ export default function Skills() {
 
           <div className="grid min-h-0 flex-1 lg:grid-cols-[minmax(200px,260px)_1fr]">
             {/* Sidebar: scroll inside, then pass to page */}
-            <NestedScrollPane className="border-b border-slate-800/80 font-mono text-sm lg:border-b-0 lg:border-r [scrollbar-width:thin] [scrollbar-color:#334155_transparent]">
+            <NestedScrollPane className="border-b border-slate-800/80 font-mono text-sm lg:border-b-0 lg:border-r">
               <div className="sticky top-0 z-10 bg-[#0d1117] px-4 py-3 text-[10px] uppercase tracking-widest text-slate-600">
                 ./skills/
               </div>
@@ -185,7 +185,7 @@ export default function Skills() {
             </NestedScrollPane>
 
             {/* Body: scroll inside, then pass to page */}
-            <NestedScrollPane className="p-4 sm:p-6 [scrollbar-width:thin] [scrollbar-color:#334155_transparent]">
+            <NestedScrollPane className="p-4 sm:p-6">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={`${view.type}-${view.index}`}

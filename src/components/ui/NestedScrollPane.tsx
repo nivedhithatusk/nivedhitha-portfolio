@@ -22,7 +22,7 @@ export default function NestedScrollPane({
   return (
     <div
       data-nested-scroll
-      className={`min-h-0 overflow-y-auto overscroll-auto ${className}`}
+      className={`hide-scrollbar min-h-0 overflow-y-auto overscroll-auto ${className}`}
       {...rest}
     >
       {children}

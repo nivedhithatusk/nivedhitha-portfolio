@@ -1,12 +1,12 @@
 "use client";
 
 import AnimatedSection, { SectionHeader } from "@/components/ui/AnimatedSection";
+import NestedScrollPane from "@/components/ui/NestedScrollPane";
 import ScrollStack from "@/components/ui/ScrollStack";
-import { experience, projects } from "@/data/resume";
+import { experience, projects, type Project } from "@/data/resume";
 import { getSkillIcon } from "@/icons";
 import { useActiveSection } from "@/hooks/useActiveSection";
 
-/** Mild per-role tints — keeps the stack design, softer color */
 const cardThemes = [
   {
     shell: "border-orange-200/70 ring-orange-100/50",
@@ -16,6 +16,8 @@ const cardThemes = [
     badge: "bg-orange-500",
     panel: "bg-orange-50/40",
     link: "text-orange-600 hover:text-orange-700",
+    thead: "bg-orange-50/90 text-orange-800",
+    row: "odd:bg-white even:bg-orange-50/40 hover:bg-orange-50/80",
   },
   {
     shell: "border-sky-200/70 ring-sky-100/50",
@@ -25,6 +27,8 @@ const cardThemes = [
     badge: "bg-sky-500",
     panel: "bg-sky-50/40",
     link: "text-sky-600 hover:text-sky-700",
+    thead: "bg-sky-50/90 text-sky-800",
+    row: "odd:bg-white even:bg-sky-50/40 hover:bg-sky-50/80",
   },
   {
     shell: "border-emerald-200/70 ring-emerald-100/50",
@@ -34,6 +38,8 @@ const cardThemes = [
     badge: "bg-emerald-500",
     panel: "bg-emerald-50/40",
     link: "text-emerald-600 hover:text-emerald-700",
+    thead: "bg-emerald-50/90 text-emerald-800",
+    row: "odd:bg-white even:bg-emerald-50/40 hover:bg-emerald-50/80",
   },
   {
     shell: "border-amber-200/70 ring-amber-100/50",
@@ -43,15 +49,44 @@ const cardThemes = [
     badge: "bg-amber-500",
     panel: "bg-amber-50/40",
     link: "text-amber-700 hover:text-amber-800",
+    thead: "bg-amber-50/90 text-amber-900",
+    row: "odd:bg-white even:bg-amber-50/40 hover:bg-amber-50/80",
   },
 ];
+
+type ProjectRow = {
+  name: string;
+  detail: string;
+};
+
+function parseKeyProject(raw: string): ProjectRow {
+  const sep = " — ";
+  const idx = raw.indexOf(sep);
+  if (idx === -1) return { name: raw, detail: "" };
+  return { name: raw.slice(0, idx), detail: raw.slice(idx + sep.length) };
+}
+
+function toRows(keyProjects: string[] | undefined, related: Project[]): ProjectRow[] {
+  if (keyProjects && keyProjects.length > 0) {
+    return keyProjects.map(parseKeyProject);
+  }
+  return related.map((p) => ({ name: p.name, detail: p.description }));
+}
 
 export default function ExperienceSection() {
   const { navigateTo } = useActiveSection();
 
+  const openProjects = (roleId: string) => {
+    window.history.replaceState(null, "", `#project-company-${roleId}`);
+    window.dispatchEvent(new Event("hashchange"));
+    navigateTo("#projects");
+  };
+
   const items = experience.map((role, i) => {
     const related = projects.filter((p) => p.company === role.company);
     const theme = cardThemes[i % cardThemes.length];
+    const rows = toRows(role.keyProjects, related);
+
     return {
       id: role.id,
       content: (
@@ -59,28 +94,30 @@ export default function ExperienceSection() {
           className={`flex h-full flex-col overflow-hidden rounded-3xl border bg-white shadow-lg shadow-slate-200/40 ring-1 ${theme.shell}`}
         >
           <div
-            className={`flex flex-wrap items-start justify-between gap-4 border-b border-slate-100/80 bg-gradient-to-r px-6 py-5 sm:px-10 sm:py-6 ${theme.header}`}
+            className={`flex flex-wrap items-start justify-between gap-3 border-b border-slate-100/80 bg-gradient-to-r px-5 py-4 sm:px-8 sm:py-5 ${theme.header}`}
           >
             <div className="min-w-0 flex-1">
-              <p className={`font-mono text-xs tracking-wider ${theme.accent}`}>
+              <p className={`font-mono text-[11px] tracking-wider ${theme.accent}`}>
                 {String(i + 1).padStart(2, "0")} /{" "}
                 {String(experience.length).padStart(2, "0")}
-                <span className="mx-2 text-slate-300">·</span>
+              </p>
+              <h3 className="mt-1 font-[family-name:var(--font-syne)] text-xl font-bold text-slate-900 sm:text-2xl lg:text-3xl">
+                {role.company}
+              </h3>
+              <p className="mt-1 text-sm font-semibold text-slate-700">
+                {role.role}
+                {role.roleSubtitle ? (
+                  <span className="font-normal text-slate-500">
+                    {" "}
+                    · {role.roleSubtitle}
+                  </span>
+                ) : null}
+              </p>
+              <p className="mt-1 font-mono text-xs text-slate-500">
                 {role.period}
                 <span className="mx-2 text-slate-300">·</span>
                 {role.location}
               </p>
-              <h3 className="mt-2 font-[family-name:var(--font-syne)] text-2xl font-bold text-slate-900 sm:text-3xl lg:text-4xl">
-                {role.company}
-              </h3>
-              <p className="mt-1 text-sm font-semibold text-slate-700 sm:text-base">
-                {role.role}
-              </p>
-              {role.roleSubtitle && (
-                <p className="mt-0.5 text-sm text-slate-500">
-                  {role.roleSubtitle}
-                </p>
-              )}
             </div>
             {i === 0 && (
               <span
@@ -91,97 +128,116 @@ export default function ExperienceSection() {
             )}
           </div>
 
-          <div className="grid min-h-0 flex-1 gap-0 lg:grid-cols-[1.2fr_0.8fr]">
-            <div
-              data-lenis-prevent
-              className="min-h-0 space-y-5 overflow-y-auto overscroll-contain px-6 py-6 sm:px-10 [scrollbar-width:thin]"
-            >
-              <div>
-                <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
-                  Role focus
-                </p>
-                <ul className="space-y-3">
-                  {role.highlights.map((point) => (
-                    <li
-                      key={point}
-                      className="flex gap-3 text-sm leading-relaxed text-slate-600 sm:text-[15px]"
-                    >
-                      <span
-                        className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${theme.dot}`}
-                      />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              {role.keyProjects && role.keyProjects.length > 0 && (
-                <div>
+          <NestedScrollPane className="min-h-0 flex-1">
+            <div className="grid lg:grid-cols-[minmax(0,1.35fr)_minmax(220px,0.65fr)]">
+              <div className="min-w-0">
+                <div className="px-5 py-5 sm:px-8">
                   <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
-                    Key projects
+                    Role focus
                   </p>
-                  <ul className="space-y-3">
-                    {role.keyProjects.map((project) => (
+                  <ul className="space-y-2.5">
+                    {role.highlights.map((point) => (
                       <li
-                        key={project}
-                        className="flex gap-3 text-sm leading-relaxed text-slate-600 sm:text-[15px]"
+                        key={point}
+                        className="flex gap-3 text-sm leading-relaxed text-slate-600"
                       >
                         <span
                           className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${theme.dot}`}
                         />
-                        {project}
+                        {point}
                       </li>
                     ))}
                   </ul>
                 </div>
-              )}
-            </div>
 
-            <div
-              className={`flex flex-col border-t border-slate-100/80 px-6 py-6 sm:px-8 lg:border-l lg:border-t-0 ${theme.panel}`}
-            >
-              <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
-                Core tools
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {role.skills.slice(0, 12).map((skill) => {
-                  const { Icon, color } = getSkillIcon(skill);
-                  return (
-                    <span
-                      key={skill}
-                      className="inline-flex items-center gap-1.5 rounded-lg border border-white/80 bg-white/90 px-2.5 py-1.5 text-[11px] font-medium text-slate-700 shadow-sm"
-                    >
-                      <Icon className="h-3.5 w-3.5" style={{ color }} />
-                      {skill}
-                    </span>
-                  );
-                })}
-                {role.skills.length > 12 && (
-                  <span className="px-2 py-1.5 text-[11px] text-slate-400">
-                    +{role.skills.length - 12}
-                  </span>
+                {rows.length > 0 && (
+                  <div className="border-t border-slate-100/80 px-5 py-5 sm:px-8">
+                    <div className="mb-3 flex items-baseline justify-between gap-3">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
+                        Key projects
+                      </p>
+                      <span className="font-mono text-[10px] text-slate-400">
+                        {rows.length}
+                      </span>
+                    </div>
+                    <div className="hide-scrollbar overflow-x-auto rounded-xl border border-slate-200/90">
+                      <table className="w-full border-collapse text-left">
+                        <thead className={`sticky top-0 z-10 ${theme.thead}`}>
+                          <tr>
+                            <th className="w-12 px-3 py-2.5 font-mono text-[10px] font-bold uppercase tracking-wider">
+                              #
+                            </th>
+                            <th className="w-[28%] px-3 py-2.5 text-[10px] font-bold uppercase tracking-wider">
+                              Project
+                            </th>
+                            <th className="px-3 py-2.5 text-[10px] font-bold uppercase tracking-wider">
+                              Scope
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {rows.map((row, idx) => (
+                            <tr
+                              key={row.name}
+                              className={`border-t border-slate-100 transition ${theme.row}`}
+                            >
+                              <td className="px-3 py-2.5 align-top font-mono text-[11px] text-slate-400">
+                                {String(idx + 1).padStart(2, "0")}
+                              </td>
+                              <td className="px-3 py-2.5 align-top text-[13px] font-semibold leading-snug text-slate-900">
+                                {row.name}
+                              </td>
+                              <td className="px-3 py-2.5 text-[13px] leading-relaxed text-slate-600">
+                                {row.detail}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 )}
               </div>
 
-              {related.length > 0 && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    window.history.replaceState(
-                      null,
-                      "",
-                      `#project-company-${role.id}`,
+              <div
+                className={`border-t border-slate-100/80 px-5 py-5 sm:px-6 lg:sticky lg:top-0 lg:border-l lg:border-t-0 ${theme.panel}`}
+              >
+                <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
+                  Core tools
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {role.skills.slice(0, 12).map((skill) => {
+                    const { Icon, color } = getSkillIcon(skill);
+                    return (
+                      <span
+                        key={skill}
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-white/80 bg-white/90 px-2 py-1 text-[11px] font-medium text-slate-700 shadow-sm"
+                      >
+                        <Icon className="h-3.5 w-3.5" style={{ color }} />
+                        {skill}
+                      </span>
                     );
-                    window.dispatchEvent(new Event("hashchange"));
-                    navigateTo("#projects");
-                  }}
-                  className={`mt-auto pt-6 text-left text-sm font-bold transition ${theme.link}`}
-                >
-                  View {related.length} related project
-                  {related.length === 1 ? "" : "s"} →
-                </button>
-              )}
+                  })}
+                  {role.skills.length > 12 && (
+                    <span className="px-2 py-1.5 text-[11px] text-slate-400">
+                      +{role.skills.length - 12}
+                    </span>
+                  )}
+                </div>
+
+                {related.length > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => openProjects(role.id)}
+                    className={`mt-6 text-left text-sm font-bold transition ${theme.link}`}
+                  >
+                    View {related.length} related project
+                    {related.length === 1 ? "" : "s"} →
+                  </button>
+                )}
+              </div>
             </div>
-          </div>
+          </NestedScrollPane>
         </article>
       ),
     };
@@ -195,7 +251,7 @@ export default function ExperienceSection() {
             number="02"
             label="Experience"
             title="My Career Journey"
-            subtitle="Scroll the role stack — full-width cards pin as you go"
+            subtitle="Scroll the role stack — key projects listed as a table"
           />
         </AnimatedSection>
 
